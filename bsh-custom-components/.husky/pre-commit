@@ -1,0 +1,43 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+. "$(dirname "$0")/common.sh"
+
+workspacesDir="components"
+
+HuskyDir=$(PWD)
+
+echo "******************* pre-commit *************************"
+
+# Getting all workspaces at './$workspaceDir' and doing test
+# Note: `pre-commit` script is started from monorepo/workspaces root folder
+cd ./$workspacesDir || exit 1
+workspaces=$(ls -d */)
+workspacesCount=$(ls -d */ | wc -l)
+if [ "$workspacesCount" = 0 ]; then
+  echo "Error: husky not found any workspace in folder './$workspacesDir"
+  exit 1
+fi
+
+# Iterating all workspaces at "./$workspacesDir" and triggering tests
+index=1
+for workspace in $workspaces
+do
+   echo "*"
+   echo "****** Test of workspace (no. $index/$workspacesCount) at: './$workspacesDir/$workspace' ******"
+   cd "$workspace" || exit 1
+
+   # Write HERE your TESTS (to be triggered in each workspace)
+   yarn lint
+   echo "*"
+
+   echo "********************************************************"
+   cd "$HuskyDir" || exit 1
+   cd ./$workspacesDir || exit 1
+   index=$((index+1))
+done
+
+cd "$HuskyDir" || exit 1
+
+echo "!!!!! Git pre-commit check with Husky SUCCEEDED :) !!!!!"
+echo "********************************************************"
+echo "***"

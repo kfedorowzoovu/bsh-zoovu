@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "CommonJS",
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "declaration": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "./build",
+    "allowJs": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": [
+      "es2015.promise",
+      "dom",
+      "es6",
+      "dom.iterable",
+      "scripthost",
+      "es2019.array"
+    ],
+    "baseUrl": ".",
+    "rootDir": ".",
+    "importHelpers": false,
+    "paths": {
+      "@zoovu/runner-model-framework": ["./node_modules/@zoovu/runner-browser-api"],
+      "@zoovu/runner-core-api": ["./node_modules/@zoovu/runner-browser-api"],
+      "@zoovu/runner-core-impl": ["./node_modules/@zoovu/runner-browser-api"],
+      "@zoovu/json2typescript": ["./node_modules/@zoovu/runner-browser-api"],
+    }
+  },
+  "exclude": [
+    "build",
+    "node_modules",
+  ],
+  "include": [
+    "./**/*.ts",
+    "./**/*.vue"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "workspaces": [
+    "components/*"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist node_modules"
+  },
+  "peerDependencies": {
+    "@zoovu/runner-browser-api": "5.162.3"
+  },
+  "devDependencies": {
+    "@zoovu/exd-api": "0.2.0",
+    "@zoovu/exd-scripts": "^0.3.0",
+    "@zoovu/theme-editor-parameter-types": "^5.28.1"
+  },
+   "dependencies": {
+    "axios": "^0.21.1",
+    "@zoovu/exd-api": "0.2.0"
+  }
+}
