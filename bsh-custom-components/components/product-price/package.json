@@ -1,0 +1,20 @@
+{
+  "name": "@zoovu/product-price-component",
+  "version": "0.0.53",
+  "private": true,
+  "main": "./src/index.ts",
+  "scripts": {
+    "dev": "zoovu-theme-editor-scripts remote-component dev",
+    "compress": "zoovu-theme-editor-scripts remote-component compress",
+    "bump-version": "zoovu-theme-editor-scripts remote-component bump-version",
+    "build": "zoovu-theme-editor-scripts remote-component build && yarn compress && yarn bump-version"
+  },
+  "peerDependencies": {
+    "@zoovu/runner-browser-api": "5.162.3"
+  },
+  "devDependencies": {
+    "@zoovu/exd-api": "0.2.0",
+    "@zoovu/exd-scripts": "^0.3.0",
+    "@zoovu/theme-editor-parameter-types": "^5.28.1"
+  }
+}

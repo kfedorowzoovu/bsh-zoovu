@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+. "$(dirname "$0")/common.sh"
+
+echo "******************* commit-msg *************************"
+
+npx commitlint --edit "$1"
+
+echo "!!!!! Git commit-msg check with Husky SUCCEEDED :) !!!!!"
+echo "********************************************************"
+echo "***"

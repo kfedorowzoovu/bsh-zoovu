@@ -1,0 +1,56 @@
+Arguments: 
+  /Users/convo_1/.nvm/versions/node/v16.17.0/bin/node /Users/convo_1/.yarn/releases/yarn-1.22.10.js
+
+PATH: 
+  /Users/convo_1/.docker/bin:/Users/convo_1/.nvm/versions/node/v16.17.0/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/convo_1/.docker/bin:/Users/convo_1/.nvm/versions/node/v16.17.0/bin:/Users/convo_1/Library/Android/sdk/emulator:/Users/convo_1/Library/Android/sdk/platform-tools:/Users/convo_1/Library/Android/sdk/emulator:/Users/convo_1/Library/Android/sdk/platform-tools
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  16.17.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://nexus.zoovu.io/repository/smartassistant-npm/@zoovu%2fexd-api: Request "https://nexus.zoovu.io/repository/smartassistant-npm/@zoovu%2fexd-api" returned a 403
+      at Request.params.callback [as _callback] (/Users/convo_1/.yarn/releases/yarn-1.22.10.js:78527:18)
+      at Request.self.callback (/Users/convo_1/.yarn/releases/yarn-1.22.10.js:135160:22)
+      at Request.emit (node:events:513:28)
+      at Request.<anonymous> (/Users/convo_1/.yarn/releases/yarn-1.22.10.js:136132:10)
+      at Request.emit (node:events:513:28)
+      at IncomingMessage.<anonymous> (/Users/convo_1/.yarn/releases/yarn-1.22.10.js:136054:12)
+      at Object.onceWrapper (node:events:627:28)
+      at IncomingMessage.emit (node:events:525:35)
+      at endReadableNT (node:internal/streams/readable:1358:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "private": true,
+    "workspaces": [
+      "components/*"
+    ],
+    "scripts": {
+      "clean": "rm -rf dist node_modules"
+    },
+    "peerDependencies": {
+      "@zoovu/runner-browser-api": "5.162.3"
+    },
+    "devDependencies": {
+      "@zoovu/exd-api": "0.1.0",
+      "@zoovu/exd-scripts": "^0.2.0",
+      "@zoovu/theme-editor-parameter-types": "^5.28.1"
+    },
+     "dependencies": {
+      "axios": "^0.21.1",
+      "@zoovu/exd-api": "0.1.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

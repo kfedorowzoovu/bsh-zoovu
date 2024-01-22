@@ -1,0 +1,33 @@
+/node/
+/node_modules/
+package-lock.json
+/build/
+/target/
+
+node_modules/
+build/
+dist/
+target/
+
+*.orig
+*.log
+/npm-debug.log*
+
+### Visual Studio Code
+
+# project configuration
+/.vscode/settings.json
+
+### IntelliJ IDEA
+
+# ignore whole IntelliJ IDEA project configuration…
+/*.iml
+/.idea/*
+
+# …except shared Runner 4 configuration
+!/.idea/inspectionProfiles/
+!/.idea/runConfigurations/
+.env
+storybook-static/
+
+yarn.lock
