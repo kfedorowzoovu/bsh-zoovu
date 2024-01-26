@@ -11,16 +11,18 @@ import {
   createFontFamilyStyle,
   NumericValue,
   NumericValueUtil,
-} from "@zoovu/theme-editor-parameter-types";
-import { JssStyle } from "jss";
+} from '@zoovu/theme-editor-parameter-types';
+import { JssStyle } from 'jss';
 
 // ******** createConfigurationWithStates ********
-export type ConfigurationWithStates<States extends string = "default", Configuration = unknown> = Record<
-  States,
-  Configuration
->;
+export type ConfigurationWithStates<
+  States extends string = 'default',
+  Configuration = unknown,
+> = Record<States, Configuration>;
 
-export const createConfigurationWithStates = <CustomConfigurationWithStates extends ConfigurationWithStates>(
+export const createConfigurationWithStates = <
+  CustomConfigurationWithStates extends ConfigurationWithStates,
+>(
   states: string[],
   ConfigurationConstructor: new () => unknown,
 ): { new (): CustomConfigurationWithStates } => {
@@ -36,16 +38,16 @@ export const createConfigurationWithStates = <CustomConfigurationWithStates exte
 
 // ******** createShadowStyles ********
 class Dimensions {
-  public offsetX: NumericValue = { value: 0, unit: "px" };
-  public offsetY: NumericValue = { value: 0, unit: "px" };
+  public offsetX: NumericValue = { value: 0, unit: 'px' };
+  public offsetY: NumericValue = { value: 0, unit: 'px' };
 }
 
 export class ShadowConfiguration {
   public applyBoxShadow = true;
   public dimensions: Dimensions = new Dimensions();
-  public blur: NumericValue = { value: 0, unit: "px" };
-  public spread: NumericValue = { value: 0, unit: "px" };
-  public shadowColor = "black";
+  public blur: NumericValue = { value: 0, unit: 'px' };
+  public spread: NumericValue = { value: 0, unit: 'px' };
+  public shadowColor = 'black';
 }
 
 const toString = NumericValueUtil.stringifyNumericValue;
@@ -60,8 +62,10 @@ export const createShadowStyles = ({
   const { offsetX, offsetY } = dimensions;
 
   const boxShadow = applyBoxShadow
-    ? `${toString(offsetX)} ${toString(offsetY)} ${toString(blur)} ${toString(spread)} ${shadowColor}`
-    : "none";
+    ? `${toString(offsetX)} ${toString(offsetY)} ${toString(blur)} ${toString(
+        spread,
+      )} ${shadowColor}`
+    : 'none';
 
   return {
     boxShadow,
@@ -70,7 +74,10 @@ export const createShadowStyles = ({
 
 // ******** createFontStyle ********
 export const createFontStyle = (
-  fontConfiguration: FontConfiguration | FontWithoutAlignConfiguration | undefined,
+  fontConfiguration:
+    | FontConfiguration
+    | FontWithoutAlignConfiguration
+    | undefined,
 ): JssStyle => {
   if (!fontConfiguration) {
     return {};
@@ -82,7 +89,9 @@ export const createFontStyle = (
     fontFamily: createFontFamilyStyle(fontFamily),
     fontSize: NumericValueUtil.from(fontSize).toString(),
     fontWeight,
-    ...(!(fontConfiguration instanceof FontWithoutAlignConfiguration) && { textAlign: fontConfiguration.textAlign }),
+    ...(!(fontConfiguration instanceof FontWithoutAlignConfiguration) && {
+      textAlign: fontConfiguration.textAlign,
+    }),
   };
 };
 

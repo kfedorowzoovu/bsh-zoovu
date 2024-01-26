@@ -1,1 +1,1 @@
-export { default } from "./product-waitlist.component.vue";
+export { default } from './product-waitlist.component.vue';

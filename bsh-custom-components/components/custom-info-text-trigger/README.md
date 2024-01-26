@@ -21,9 +21,11 @@ The Info Text Modal and Modal Trigger component is available for all answers.
 To activate the feature, follow these steps:
 
 1. **Select 'Flow Step' Component:**
+
    - Open the 'Answer Description' setting for the relevant 'Flow Step' component.
 
 2. **Activate Info Text Modal:**
+
    - Activate the Info Text Modal within the 'Answer Description' setting.
 
 3. **Go to 'Custom Info Text Trigger' Settings:**

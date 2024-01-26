@@ -3,11 +3,11 @@ import {
   BorderConfiguration,
   MarginConfiguration,
   PaddingConfiguration,
-} from "../../helpers/helpers";
-import { NumericValue } from "@zoovu/theme-editor-parameter-types";
+} from '../../helpers/helpers';
+import { NumericValue } from '@zoovu/theme-editor-parameter-types';
 
 export class ProductImageConfiguration {
-  campaignIconsColumn = "";
+  campaignIconsColumn = '';
   containerWidth: NumericValue = { value: 0 };
   padding: PaddingConfiguration = new PaddingConfiguration();
   margin: MarginConfiguration = new MarginConfiguration();
@@ -22,6 +22,12 @@ export class ProductImageConfiguration {
   iconPadding: PaddingConfiguration = new PaddingConfiguration();
   iconBorder: BorderConfiguration = new BorderConfiguration();
   iconJustifyContent: {
-    value: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly";
-  } = { value: "flex-start" };
+    value:
+      | 'flex-start'
+      | 'flex-end'
+      | 'center'
+      | 'space-between'
+      | 'space-around'
+      | 'space-evenly';
+  } = { value: 'flex-start' };
 }

@@ -1,6 +1,10 @@
-import { ComponentStyleDefinition } from "@zoovu/runner-browser-api";
-import { ProductPriceConfiguration } from "./product-price.configuration";
-import { createMarginStyles, createFontStyle, createPaddingStyles } from "../../helpers/helpers";
+import { ComponentStyleDefinition } from '@zoovu/runner-browser-api';
+import { ProductPriceConfiguration } from './product-price.configuration';
+import {
+  createMarginStyles,
+  createFontStyle,
+  createPaddingStyles,
+} from '../../helpers/helpers';
 
 export const productPriceStyle: ComponentStyleDefinition = {
   container: (config: ProductPriceConfiguration) => ({
@@ -12,7 +16,7 @@ export const productPriceStyle: ComponentStyleDefinition = {
   }),
   originalPriceElement: (config: ProductPriceConfiguration) => ({
     extend: createFontStyle(config.originalPriceFont),
-    textDecoration: config.crossedOutOriginalPrice ? "line-through" : "none",
+    textDecoration: config.crossedOutOriginalPrice ? 'line-through' : 'none',
   }),
   discountPriceElement: (config: ProductPriceConfiguration) => ({
     extend: createFontStyle(config.discountPriceFont),
@@ -24,6 +28,6 @@ export const productPriceStyle: ComponentStyleDefinition = {
     extend: [
       createFontStyle(config.descriptionFont),
       createPaddingStyles(config.descriptionPadding),
-    ]
+    ],
   }),
 };

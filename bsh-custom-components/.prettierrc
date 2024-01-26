@@ -1,1 +1,5 @@
-"@zoovu/prettier-config-theme-editor"
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 80
+}

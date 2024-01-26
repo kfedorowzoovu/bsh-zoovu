@@ -1,7 +1,16 @@
 <template>
-  <div class="o-onlinedealerlayer zv-buyonline-overlay" data-t-name="OnlineDealerLayer" data-mcid="true">
-    <form class="js-ajax-request buyonlinepopupwrapper" v-bind="modelAjaxIdPath">
-      <fieldset data-replace-container="request-param_dealer-integration-buttons"></fieldset>
+  <div
+    class="o-onlinedealerlayer zv-buyonline-overlay"
+    data-t-name="OnlineDealerLayer"
+    data-mcid="true"
+  >
+    <form
+      class="js-ajax-request buyonlinepopupwrapper"
+      v-bind="modelAjaxIdPath"
+    >
+      <fieldset
+        data-replace-container="request-param_dealer-integration-buttons"
+      ></fieldset>
       <input type="hidden" class="js-mcid" name="mcid" />
       <script data-ajax-template="success" type="text/x-dot-template">
         [{? it.typeGroups && it.typeGroups.buyButton }]
@@ -195,12 +204,20 @@
       </script>
     </div>
 
-    <div data-t-name="Layer" data-id="online-dealer-layer" class="m-layer" data-t-decorator="OnlineDealer">
+    <div
+      data-t-name="Layer"
+      data-id="online-dealer-layer"
+      class="m-layer"
+      data-t-decorator="OnlineDealer"
+    >
       <div class="js-overlay layer-overlay" />
       <div class="layer-wrapper">
         <div class="layer-content g-container">
           <div class="layer-close">
-            <button name="close-button" class="a-button a-button-plain js-close-button">
+            <button
+              name="close-button"
+              class="a-button a-button-plain js-close-button"
+            >
               <i class="icon icon-close" />
               <span class="text sr-only">
                 {{ $t(componentConfiguration.close) }}
@@ -211,13 +228,19 @@
             <h2 class="a-heading">
               {{ $t(componentConfiguration.headline) }}
             </h2>
-            <p class="layer-intro-text" v-html="privacyPolicyText" :style="`color: ${rootColor} !important;`" />
+            <p
+              class="layer-intro-text"
+              v-html="privacyPolicyText"
+              :style="`color: ${rootColor} !important;`"
+            />
 
             <div class="m-tabs" data-t-name="Tabs">
               <div class="tabs-wrapper">
                 <ul class="tabs-nav">
                   <li>
-                    <a href="#/Tabs=tab1/">{{ $t(componentConfiguration.tabCaption) }}</a>
+                    <a href="#/Tabs=tab1/">{{
+                      $t(componentConfiguration.tabCaption)
+                    }}</a>
                   </li>
                   <li class="tab-more">
                     <a href="#"><i class="icon icon-arrow-down"></i></a>
@@ -239,7 +262,10 @@
                     data-page-size-loadmore="8"
                     data-t-decorator="OnlineDealer"
                   >
-                    <div class="list-layout js-list-layout" data-replace-container="ajax-online-dealers-randomized" />
+                    <div
+                      class="list-layout js-list-layout"
+                      data-replace-container="ajax-online-dealers-randomized"
+                    />
                     <div
                       class="a-loadmore"
                       data-t-name="LoadMore"
@@ -253,8 +279,14 @@
                       data-request-context=".ajax-success-tpl-wrapper"
                       data-init-event="onlinedealerbutton:click"
                     >
-                      <button class="a-button a-button-primary" data-loader-type="inline" data-loader>
-                        <span class="text">{{ $t(componentConfiguration.showMore) }}</span>
+                      <button
+                        class="a-button a-button-primary"
+                        data-loader-type="inline"
+                        data-loader
+                      >
+                        <span class="text">{{
+                          $t(componentConfiguration.showMore)
+                        }}</span>
                       </button>
                     </div>
                   </div>
@@ -269,56 +301,62 @@
 </template>
 
 <script lang="ts">
-  import { Component, ModelProp, Vue, Prop } from "@zoovu/runner-browser-api";
-  import { BuyOnlineOverlayConfiguration } from "../custom-buttons.configuration";
-  import {  Button } from "../../../helpers/types";
+import { Component, ModelProp, Vue, Prop } from '@zoovu/runner-browser-api';
+import { BuyOnlineOverlayConfiguration } from '../custom-buttons.configuration';
+import { Button } from '../../../helpers/types';
 
-  @Component
-  export default class BuyOnlineOverlay extends Vue {
-    @ModelProp()
-    componentConfiguration: BuyOnlineOverlayConfiguration;
+@Component
+export default class BuyOnlineOverlay extends Vue {
+  @ModelProp()
+  componentConfiguration: BuyOnlineOverlayConfiguration;
 
-    @Prop()
-    pathOfOverlayApi!: Button;
+  @Prop()
+  pathOfOverlayApi!: Button;
 
-    @Prop()
-    privacyPageUrl!: string;
+  @Prop()
+  privacyPageUrl!: string;
 
-    @Prop()
-    isProductionEnvironment!: boolean;
+  @Prop()
+  isProductionEnvironment!: boolean;
 
-    rootColor: string = null;
+  rootColor: string = null;
 
-    get modelAjaxIdPath(): Object {
-      return {
-        "data-ajax-id": "dealerlayer-integration-buttons",
-        "data-ajax": `{"url":"${this.pathOfOverlayApi?.href}", "method":"POST"}`,
-      };
-    }
-
-    get privacyPolicyText(): string {
-      const privacyPolicyUrl = this.privacyPageUrl;
-      let privacyPolicyStandardText: string = this.$t(this.componentConfiguration.privacy).toString();
-
-      if (
-        privacyPolicyStandardText.includes("{{link}}") &&
-        privacyPolicyStandardText.includes("{{/link}}") &&
-        privacyPolicyUrl
-      ) {
-        privacyPolicyStandardText = privacyPolicyStandardText
-          .replace(
-            "{{link}}",
-            `<a class="a-link a-link-inline" href="${privacyPolicyUrl}" target="_blank"><span class="text">`,
-          )
-          .replace("{{/link}}", `</span></a>`);
-      } else {
-        privacyPolicyStandardText = privacyPolicyStandardText.replace("{{link}}", "").replace("{{/link}}", "");
-      }
-      return privacyPolicyStandardText;
-    }
-
-    mounted() {
-      this.rootColor = getComputedStyle(window.document.body)?.color || this.componentConfiguration.rootColor;
-    }
+  get modelAjaxIdPath(): Object {
+    return {
+      'data-ajax-id': 'dealerlayer-integration-buttons',
+      'data-ajax': `{"url":"${this.pathOfOverlayApi?.href}", "method":"POST"}`,
+    };
   }
+
+  get privacyPolicyText(): string {
+    const privacyPolicyUrl = this.privacyPageUrl;
+    let privacyPolicyStandardText: string = this.$t(
+      this.componentConfiguration.privacy,
+    ).toString();
+
+    if (
+      privacyPolicyStandardText.includes('{{link}}') &&
+      privacyPolicyStandardText.includes('{{/link}}') &&
+      privacyPolicyUrl
+    ) {
+      privacyPolicyStandardText = privacyPolicyStandardText
+        .replace(
+          '{{link}}',
+          `<a class="a-link a-link-inline" href="${privacyPolicyUrl}" target="_blank"><span class="text">`,
+        )
+        .replace('{{/link}}', `</span></a>`);
+    } else {
+      privacyPolicyStandardText = privacyPolicyStandardText
+        .replace('{{link}}', '')
+        .replace('{{/link}}', '');
+    }
+    return privacyPolicyStandardText;
+  }
+
+  mounted() {
+    this.rootColor =
+      getComputedStyle(window.document.body)?.color ||
+      this.componentConfiguration.rootColor;
+  }
+}
 </script>

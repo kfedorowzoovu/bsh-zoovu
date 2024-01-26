@@ -1,1 +1,1 @@
-export { default } from "./product-image.component.vue";
+export { default } from './product-image.component.vue';

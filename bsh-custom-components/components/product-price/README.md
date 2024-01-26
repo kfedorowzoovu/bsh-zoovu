@@ -25,6 +25,7 @@ The button's visibility is data-driven and determined by the built-in functional
 To forcibly show or hide this button, a context variable (`displayProductPrice`) is defined on Conversational Studio. Changing the boolean value of this variable will show or hide the button on the assistant level.
 
 **Where to Find the Context Variable:**
+
 - Login to Conversational Studio.
 - Go to settings and click on context settings.
 - Edit the context variable and change the boolean value to `true` or `false` to show or hide the price.
@@ -35,7 +36,6 @@ To activate the component, follow these steps:
 
 1. **Access 'Top Product'/'Recommendations' Settings:**
    - Navigate to the settings for 'Top Product' or 'Recommendations.'
-   
 2. **Enable the Product Price Component:**
    - Activate the Product Price component.
    - Select 'BSH Product Price.'

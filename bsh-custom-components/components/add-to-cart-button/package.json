@@ -1,6 +1,6 @@
 {
   "name": "@zoovu/bsh-add-to-cart-button-component",
-  "version": "0.0.180",
+  "version": "0.0.179",
   "private": true,
   "main": "./src/index.ts",
   "module": "index.ts",
@@ -9,16 +9,15 @@
   ],
   "scripts": {
     "dev": "zoovu-theme-editor-scripts remote-component dev",
-    "compress": "zoovu-theme-editor-scripts remote-component compress",
     "bump-version": "zoovu-theme-editor-scripts remote-component bump-version",
-    "build": "zoovu-theme-editor-scripts remote-component build && yarn compress && yarn bump-version"
+    "build": "zoovu-theme-editor-scripts remote-component build && yarn bump-version"
   },
   "peerDependencies": {
     "@zoovu/runner-browser-api": "5.162.3"
   },
   "devDependencies": {
-    "@zoovu/exd-api": "0.2.0",
-    "@zoovu/exd-scripts": "^0.3.0",
+    "@zoovu/exd-api": "0.4.0",
+    "@zoovu/exd-scripts": "^0.4.0",
     "@zoovu/theme-editor-parameter-types": "^5.28.1"
   }
 }

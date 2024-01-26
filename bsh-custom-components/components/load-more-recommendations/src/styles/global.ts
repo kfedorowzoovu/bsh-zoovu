@@ -1,15 +1,15 @@
 export default {
   colors: {
-    blackOne: "#000000",
-    blackTwo: "#2B2B2B",
-    white: "#FFFFFF",
-    creamy: "#F8F8F8",
-    yellowOne: "#FEED00",
-    yellowTwo: "#FFED00",
-    greyOne: "#E3E3E3",
-    greyTwo: "#757575",
-    greyThree: "#6E6E6E",
-    greyFour: "#C3C2C2",
+    blackOne: '#000000',
+    blackTwo: '#2B2B2B',
+    white: '#FFFFFF',
+    creamy: '#F8F8F8',
+    yellowOne: '#FEED00',
+    yellowTwo: '#FFED00',
+    greyOne: '#E3E3E3',
+    greyTwo: '#757575',
+    greyThree: '#6E6E6E',
+    greyFour: '#C3C2C2',
   },
   fontSize: {
     xxxxs: 10,
@@ -23,9 +23,9 @@ export default {
     xxxl: 30,
   },
   fontFamily: {
-    clanProNarrBlack: "ClanPro-NarrBlack",
-    clanPro: "Clan Pro",
-    clanProNarrBold: "ClanPro-NarrBold",
+    clanProNarrBlack: 'ClanPro-NarrBlack',
+    clanPro: 'Clan Pro',
+    clanProNarrBold: 'ClanPro-NarrBold',
   },
   breakpoints: {
     xl: 1200,

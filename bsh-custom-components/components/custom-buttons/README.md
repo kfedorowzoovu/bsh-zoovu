@@ -8,14 +8,16 @@
 
 `yarn dev` - This command runs the project in development mode, allowing you to view your remote component in the Experience Designer (EXD). Log in to your Conversational Studio account, open the Experience Designer, and your component will be displayed within the EXD interface.
 
-------------------------------------------------------------------------------------------
+---
 
 ## Dealer Locator Button
 
 ### Overview
+
 The Dealer Locator Button is a custom component designed to toggle the visibility of a button based on specific conditions. This functionality is implemented through executable JavaScript. The following document outlines the configuration settings and conditions associated with the Dealer Locator Button.
 
 ### Component Availability
+
 The component is available for both the top product and recommendation products.
 
 ### Activation Conditions
@@ -41,6 +43,7 @@ You can specify the URL for the Dealer Locator Button using the context variable
 ### Button Link Composition
 
 The link for the button is composed of two parts:
+
 1. The first part is common for all products in the assistant and is derived from the 'Custom URL' field.
 2. The second part is unique for each product and is obtained from the 'Property Column Name,' where the value is a column name from the catalog.
 
@@ -52,38 +55,45 @@ In summary, this code is utilized to decide whether to display the "Dealer Locat
 
 Please ensure these configurations align with the desired behavior of the Dealer Locator Button.
 
-------------------------------------------------------------------------------------------
+---
 
 ## Buy Online Button and Retailer's Logos Components
 
 ### Overview
+
 This document provides information and instructions for the Buy Online Button and Retailer's Logos components. These components enhance the user experience by dynamically displaying logos and enabling online purchasing based on specific conditions.
 
 ### Buy Online Button Configuration
 
 #### Activation Conditions
+
 - The Buy Online button's visibility is determined by the `catalog_visibility_type` in the data catalog.
   - If `catalog_visibility_type` is set to "MARKETING," the button will be visible for that particular product; otherwise, it will be hidden.
 
 #### Component Activation
+
 1. **Login to Platform:** Log in to the platform.
 2. **Navigate to Settings:** Go to settings > context settings.
 3. **Context Variable:** In the context section, find the context variable named `displayBuyOnlineButton`.
 4. **Toggle Visibility:** If the value is `false`, the button will be hidden for the specific assistant. If the value is `true`, the button will be visible for the assistant.
 
 #### Button Visibility Logic
+
 The button's visibility is dynamically determined by an API call triggered by the Retailer's Logos component. The following conditions apply:
 
 - **Dealers List (1-4 Dealers):**
+
   - Logos are displayed directly on the recommendation page.
   - The "Buy Online" button (Show More) is hidden.
 
 - **Dealers List (More than 4 Dealers):**
+
   - The first 4 dealers' logos are displayed directly.
   - The "Buy Online" button (Show More) is displayed below the logos.
   - Clicking the button triggers an AJAX link from `typeGroups` and opens an overlay/popup.
 
 - **Dealers List Empty but typeGroups Exist:**
+
   - No logos are displayed.
   - The "Buy Online" button (Show More) is displayed.
   - Clicking the button triggers the AJAX URL in `href`, opening an overlay with dealer information.
@@ -93,10 +103,12 @@ The button's visibility is dynamically determined by an API call triggered by th
   - This scenario may occur if BuyOnline configuration is disabled for a website or if a product lacks dealer information.
 
 #### Popup Functionality
+
 - The component opens a popup with a list of retailers.
 - Functionality is fully operational on BSH environments; on the Zoovu Platform, it serves as a placeholder for visibility checks.
 
 #### Data Catalog Check for Visibility
+
 - The component is visible if the data contains a column named `catalogVisibilityType` with a value equal to "MARKETING."
 
 ### Dynamic Handling of Country Codes in API Endpoint
@@ -115,11 +127,12 @@ The button's visibility is dynamically determined by an API call triggered by th
 
 Please follow these instructions and configurations to ensure the optimal functioning of the Buy Online Button and Retailer's Logos components.
 
-------------------------------------------------------------------------------------------
+---
 
 ## Combinable Products Button
 
 ### Overview
+
 This document provides information and instructions for the Combinable Products Button component, associated with JIRA Task CD-16083. The component enhances the user experience by allowing easy access to combinable products associated with a specific item.
 
 ### Component Availability
@@ -131,7 +144,6 @@ The Combinable Products Button is available for both top products and recommenda
 To activate the component, follow these steps:
 
 1. **Top Product/Recommendations Settings:** Access 'Top Product' or 'Recommendations' settings.
-   
 2. **Login to Platform:** Log in to the platform.
 
 3. **Navigate to Settings:** Go to settings > context settings.
@@ -148,7 +160,7 @@ For convenience, a placeholder button will be visible in the Experience Designer
 
 - **Custom Type Name:** Specify the "Custom Type Name." By default, it is set to "combinable
 
-_products." A request will be made to the "Property Column Name," and the response should contain a "type" property that must match with this value.
+\_products." A request will be made to the "Property Column Name," and the response should contain a "type" property that must match with this value.
 
 ### Button Formatting
 
@@ -160,11 +172,12 @@ Ensure that the specified conditions are met to correctly display the Combinable
 
 Thank you for using the Combinable Products Button component to enhance your product finders on the BSH platform. If you have any questions or concerns, please reach out to the support team.
 
-------------------------------------------------------------------------------------------
+---
 
 ## Retailer Logo Buttons
 
 ### Overview
+
 This document provides information and instructions for the Retailer Logo Buttons component, associated with JIRA Task CD-2413. This component enhances the presentation of retailer logos on the result page, allowing users to easily identify and interact with dealers associated with specific products.
 
 ### Component Availability
@@ -191,16 +204,19 @@ The response structure is as follows:
 ### Button Display Logic
 
 - **Dealers List (1-4 Dealers):**
+
   - Returned response contains the list of dealers, and `typeGroups` equals null.
   - All dealers' logos will be displayed directly.
   - "Buy Online" (Show More) button is hidden.
 
 - **Dealers List (More than 4 Dealers):**
+
   - Response contains the list of dealers and a "typeGroups" attribute with an AJAX link (`href`).
   - The first 4 dealers' logos are displayed directly.
   - "Buy Online" (Show More) button is displayed below the logos. Clicking it triggers the AJAX link from `typeGroups` and opens an overlay/popup.
 
 - **Dealers List Empty but typeGroups Exist (Not Null):**
+
   - No logos are displayed.
   - "Buy Online" (Show More) button is displayed. Clicking it triggers `href` - the AJAX URL to be used when clicking on the "Buy Online" button, opening an overlay with dealer information.
 
@@ -217,21 +233,27 @@ The response structure is as follows:
 ### Configuration Settings
 
 - **Privacy Policy URL:**
+
   - URL leading to the privacy policy page. If empty, the text with the link at the bottom won't be shown.
 
 - **Buy Online Header:**
+
   - Translated text displayed at the top of the component.
 
 - **Privacy Policy Text:**
+
   - Text with a privacy policy link shown if there is a privacy policy URL. Use {{link}} and {{/link}} to create a working link in the text.
 
 - **Font and Margin:**
+
   - Styles applied to the entire component.
 
 - **Buy Online Padding:**
+
   - Padding for text at the top of the component.
 
 - **Logo Styles:**
+
   - Styles for logos.
 
 - **Privacy Policy Padding:**

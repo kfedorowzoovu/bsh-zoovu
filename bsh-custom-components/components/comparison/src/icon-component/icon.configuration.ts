@@ -1,15 +1,15 @@
-import { ColorValue, NumericValue } from "@zoovu/theme-editor-parameter-types";
-import { MarginConfiguration } from "../../../helpers/helpers";
+import { ColorValue, NumericValue } from '@zoovu/theme-editor-parameter-types';
+import { MarginConfiguration } from '../../../helpers/helpers';
 
 export class IconConfiguration {
-    svgUrl?: string = "";
+  svgUrl?: string = '';
 
-    size?: NumericValue = {
-        value: 100,
-        unit: "%",
-    };
+  size?: NumericValue = {
+    value: 100,
+    unit: '%',
+  };
 
-    color?: ColorValue | null = "";
+  color?: ColorValue | null = '';
 
-    margin?: MarginConfiguration = new MarginConfiguration();
+  margin?: MarginConfiguration = new MarginConfiguration();
 }

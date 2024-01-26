@@ -25,7 +25,9 @@
             :data-eventTracking="trackingEventData"
           >
             <em class="icon icon-shoppingcart icon-m"></em>
-            <span class="text">{{ $t(componentConfiguration.addToCartText) }}</span>
+            <span class="text">{{
+              $t(componentConfiguration.addToCartText)
+            }}</span>
           </button>
         </form>
       </div>
@@ -68,13 +70,12 @@ import {
   ComponentStyle,
   Prop,
   Mixins,
-} from "@zoovu/runner-browser-api";
-import { AddToCartButtonConfiguration } from "./add-to-cart-button.configuration";
-import { addToCartButtonStyle } from "./add-to-cart-button.style";
-import { getRecommendationPropertyValue } from "../../helpers/helpers";
-import { CatalogVisibilityType, DataColumnName } from "../../helpers/types";
-import { ZoovuFacadeMixin } from "../../helpers/zoovu-facade.mixin";
-import { Product } from  "@zoovu/exd-api";
+} from '@zoovu/runner-browser-api';
+import { AddToCartButtonConfiguration } from './add-to-cart-button.configuration';
+import { addToCartButtonStyle } from './add-to-cart-button.style';
+import { getRecommendationPropertyValue } from '../../helpers/helpers';
+import { CatalogVisibilityType, DataColumnName } from '../../helpers/types';
+import { Product, ZoovuFacadeMixin } from '@zoovu/exd-api';
 
 /**
  * BSH - Custom add to cart button
@@ -92,29 +93,33 @@ export default class AddToCartButtonComponent extends Mixins(ZoovuFacadeMixin) {
 
   buttonVisibility: boolean = false;
 
-
   async mounted() {
-    await this.zoovuFacade.waitForIdle();
-    this.buttonVisibility = this.getContextBooleanValue("displayAddToCartButton");
+    await this.zoovuFacade.waitForAdvisorInitialization();
+    this.buttonVisibility = this.getContextBooleanValue(
+      'displayAddToCartButton',
+    );
   }
 
   getContextBooleanValue(variableName: string): boolean {
-    const readContextValue = this.zoovuFacade.useContext().get(variableName);
+    const readContextValue = this.zoovuFacade.context.get(variableName);
     return Boolean(readContextValue.value || readContextValue.defaultValue);
   }
 
   get dataAjax(): string {
     if (!this.componentConfiguration.useScript)
       return `{"url":"${this.addToCartLink}", "dataType":"html", "method":"POST"}`;
-    return "";
+    return '';
   }
 
   get isProductionEnvironment(): boolean {
-    return Object.prototype.hasOwnProperty.call(window, "T");
+    return Object.prototype.hasOwnProperty.call(window, 'T');
   }
 
   get catalogVisibilityType(): string {
-    return getRecommendationPropertyValue(this.productRecommendation, DataColumnName.CatalogVisibilityType) as string;
+    return getRecommendationPropertyValue(
+      this.productRecommendation,
+      DataColumnName.CatalogVisibilityType,
+    ) as string;
   }
 
   get productSKU(): string {
@@ -133,25 +138,39 @@ export default class AddToCartButtonComponent extends Mixins(ZoovuFacadeMixin) {
     if (this.isEditMode) {
       return this.catalogVisibilityType === CatalogVisibilityType.Shop;
     } else {
-      return this.catalogVisibilityType === CatalogVisibilityType.Shop && this.buttonVisibility;
+      return (
+        this.catalogVisibilityType === CatalogVisibilityType.Shop &&
+        this.buttonVisibility
+      );
     }
   }
 
   get isProductBuyable(): boolean {
-    return Boolean(getRecommendationPropertyValue(this.productRecommendation, DataColumnName.Buyable));
+    return Boolean(
+      getRecommendationPropertyValue(
+        this.productRecommendation,
+        DataColumnName.Buyable,
+      ),
+    );
   }
 
   get countryCode(): string {
-    return getRecommendationPropertyValue(this.productRecommendation, DataColumnName.CountryCode) as string;
+    return getRecommendationPropertyValue(
+      this.productRecommendation,
+      DataColumnName.CountryCode,
+    ) as string;
   }
 
   public addToCartViaJS(): void {
     try {
-      if (this.componentConfiguration.addToCartScript === "") {
+      if (this.componentConfiguration.addToCartScript === '') {
         return;
       }
       // eslint-disable-next-line no-new-func
-      const addToCartSnippet = Function("product", `${this.componentConfiguration.addToCartScript}`);
+      const addToCartSnippet = Function(
+        'product',
+        `${this.componentConfiguration.addToCartScript}`,
+      );
       this.productRecommendation.notifyProductAddedToCart();
       addToCartSnippet.call({}, Object.assign({}, this.productRecommendation));
     } catch (error) {
@@ -163,8 +182,8 @@ export default class AddToCartButtonComponent extends Mixins(ZoovuFacadeMixin) {
     if (this.componentConfiguration.addToCartProductCatalogToggle) {
       return this.componentConfiguration.addToCartFromProductCatalog;
     } else {
-      const cartLink = this.componentConfiguration.addToCartLink || "";
-      const countryCode = this.countryCode ? `/${this.countryCode}` : "";
+      const cartLink = this.componentConfiguration.addToCartLink || '';
+      const countryCode = this.countryCode ? `/${this.countryCode}` : '';
       return `${countryCode}${cartLink}`;
     }
   }

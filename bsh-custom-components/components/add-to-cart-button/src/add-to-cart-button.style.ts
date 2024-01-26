@@ -1,17 +1,17 @@
-import { Classes, Styles } from "jss";
-import { AddToCartButtonConfiguration } from "./add-to-cart-button.configuration";
+import { Classes, Styles } from 'jss';
+import { AddToCartButtonConfiguration } from './add-to-cart-button.configuration';
 import {
   createBorderStyle,
   createFontStyle,
   createMarginStyles,
   createPaddingStyles,
   NumericValueUtil,
-} from "../../helpers/helpers";
+} from '../../helpers/helpers';
 
 const toString = NumericValueUtil.stringifyNumericValue;
 
 export const addToCartButtonStyle: Styles<
-  "container" | "label",
+  'container' | 'label',
   AddToCartButtonConfiguration
 > = {
   container: ({
@@ -26,13 +26,13 @@ export const addToCartButtonStyle: Styles<
       createPaddingStyles(padding),
       createMarginStyles(margin),
     ],
-    display: "flex",
-    alignItems: "center",
-    cursor: "pointer",
+    display: 'flex',
+    alignItems: 'center',
+    cursor: 'pointer',
     width: toString(width),
     backgroundColor: states.default.backgroundColor,
-    textAlign: "center",
-    "&:hover": {
+    textAlign: 'center',
+    '&:hover': {
       extend: [
         createBorderStyle(states.hover.border),
         createFontStyle(states.hover.font),
@@ -40,7 +40,7 @@ export const addToCartButtonStyle: Styles<
       color: states.hover.font.color,
       backgroundColor: states.hover.backgroundColor,
     },
-    "&:active": {
+    '&:active': {
       extend: [
         createBorderStyle(states.active.border),
         createFontStyle(states.active.font),
@@ -48,20 +48,20 @@ export const addToCartButtonStyle: Styles<
       color: states.active.font.color,
       backgroundColor: states.active.backgroundColor,
     },
-    "&:focus": {
+    '&:focus': {
       extend: [
         createBorderStyle(states.focus.border),
         createFontStyle(states.focus.font),
       ],
       color: states.focus.font.color,
-      outline: "2px solid",
+      outline: '2px solid',
       outlineColor: states.focus.border,
       backgroundColor: states.focus.backgroundColor,
     },
   }),
   label: () => ({
-    whiteSpace: "nowrap",
-    pointerEvents: "none",
+    whiteSpace: 'nowrap',
+    pointerEvents: 'none',
   }),
 };
 

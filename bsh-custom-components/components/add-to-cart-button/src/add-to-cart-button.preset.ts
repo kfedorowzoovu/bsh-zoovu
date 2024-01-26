@@ -10,12 +10,17 @@ import {
   selectProductAttributes,
   numeric,
   EmbeddedComponentParameterFormat,
-} from "@zoovu/theme-editor-parameter-types";
-import { fontParameters, borderStyles, padding, margin } from "../../helpers/helpers";
-const createBackgroundColor = (defaultValue = "#0070D8") => {
+} from '@zoovu/theme-editor-parameter-types';
+import {
+  fontParameters,
+  borderStyles,
+  padding,
+  margin,
+} from '../../helpers/helpers';
+const createBackgroundColor = (defaultValue = '#0070D8') => {
   return color({
     default: defaultValue,
-    label: "Background color",
+    label: 'Background color',
   });
 };
 
@@ -23,41 +28,41 @@ const states = object(
   {
     default: object(
       {
-        border: borderStyles("solid", "white", 1),
-        font: fontParameters("white", 18),
+        border: borderStyles('solid', 'white', 1),
+        font: fontParameters('white', 18),
         backgroundColor: createBackgroundColor(),
       },
-      { label: "default" }
+      { label: 'default' },
     ),
     hover: object(
       {
-        border: borderStyles("solid", "white", 1),
-        font: fontParameters("white", 18),
+        border: borderStyles('solid', 'white', 1),
+        font: fontParameters('white', 18),
         backgroundColor: createBackgroundColor(),
       },
-      { label: "hover" }
+      { label: 'hover' },
     ),
     active: object(
       {
-        border: borderStyles("solid", "white", 1),
-        font: fontParameters("white", 18),
+        border: borderStyles('solid', 'white', 1),
+        font: fontParameters('white', 18),
         backgroundColor: createBackgroundColor(),
       },
-      { label: "active" }
+      { label: 'active' },
     ),
     focus: object(
       {
-        border: borderStyles("solid", "white", 1),
-        font: fontParameters("white", 18),
-        backgroundColor: createBackgroundColor("transparent"),
+        border: borderStyles('solid', 'white', 1),
+        font: fontParameters('white', 18),
+        backgroundColor: createBackgroundColor('transparent'),
       },
-      { label: "focus" }
+      { label: 'focus' },
     ),
   },
   {
-    label: "",
+    label: '',
     format: EmbeddedComponentParameterFormat.TABS,
-  }
+  },
 );
 
 const addToCartButtonPreset = remoteComponentConfig(
@@ -67,59 +72,87 @@ const addToCartButtonPreset = remoteComponentConfig(
       margin: margin(0, 0, 0, 0),
       padding: padding(16, 13, 16, 15),
       width: numeric({
-        default: { value: 0, unit: "auto" },
-        label: "Width",
-        units: ["px", "em", "rem", "%", "auto"],
+        default: { value: 0, unit: 'auto' },
+        label: 'Width',
+        units: ['px', 'em', 'rem', '%', 'auto'],
       }),
       addToCartText: standardText({
-        label: "Add to cart text",
-        default: "Add to cart",
+        label: 'Add to cart text',
+        default: 'Add to cart',
       }),
       useScript: boolean({
-        label: "Use add to cart script",
+        label: 'Use add to cart script',
         default: false,
       }),
 
       addToCartScript: script({
-        label: "Add to cart script",
-        default: "",
-        assistantParameterId: "bshAddToCartScript",
+        label: 'Add to cart script',
+        default: '',
+        assistantParameterId: 'bshAddToCartScript',
         displayIf: {
-          expressions: [{ path: "useScript", comparator: ExpressionComparator.EQUALS, value: true }],
+          expressions: [
+            {
+              path: 'useScript',
+              comparator: ExpressionComparator.EQUALS,
+              value: true,
+            },
+          ],
         },
       }),
 
       addToCartProductCatalogToggle: boolean({
-        label: "Use  from product catalog",
+        label: 'Use  from product catalog',
         default: false,
         displayIf: {
-          expressions: [{ path: "useScript", comparator: ExpressionComparator.EQUALS, value: false }],
+          expressions: [
+            {
+              path: 'useScript',
+              comparator: ExpressionComparator.EQUALS,
+              value: false,
+            },
+          ],
         },
       }),
 
       addToCartLink: string({
-        label: "Add to cart path",
-        default: "",
+        label: 'Add to cart path',
+        default: '',
         displayIf: {
           expressions: [
-            { path: "addToCartProductCatalogToggle", comparator: ExpressionComparator.EQUALS, value: false },
-            { path: "useScript", comparator: ExpressionComparator.EQUALS, value: false },
+            {
+              path: 'addToCartProductCatalogToggle',
+              comparator: ExpressionComparator.EQUALS,
+              value: false,
+            },
+            {
+              path: 'useScript',
+              comparator: ExpressionComparator.EQUALS,
+              value: false,
+            },
           ],
         },
       }),
       addToCartFromProductCatalog: selectProductAttributes({
-        label: "Add to cart column name",
-        default: "",
+        label: 'Add to cart column name',
+        default: '',
         displayIf: {
           expressions: [
-            { path: "addToCartProductCatalogToggle", comparator: ExpressionComparator.EQUALS, value: true },
-            { path: "useScript", comparator: ExpressionComparator.EQUALS, value: false },
+            {
+              path: 'addToCartProductCatalogToggle',
+              comparator: ExpressionComparator.EQUALS,
+              value: true,
+            },
+            {
+              path: 'useScript',
+              comparator: ExpressionComparator.EQUALS,
+              value: false,
+            },
           ],
         },
       }),
     },
-    { label: "AddToCartButtonComponent" }
-  )
+    { label: 'AddToCartButtonComponent' },
+  ),
 );
 
 export default addToCartButtonPreset;

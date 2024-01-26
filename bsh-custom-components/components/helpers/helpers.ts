@@ -9,162 +9,173 @@ import {
   EmbeddedComponentParameterFormat,
   ExpressionComparator,
   SelectComponentParameterFormat,
-} from "@zoovu/theme-editor-parameter-types";
-import { Product, ProductProperty } from "@zoovu/exd-api";
+} from '@zoovu/theme-editor-parameter-types';
+import { Product, ProductProperty } from '@zoovu/exd-api';
 
 export enum MarketplaceComponentParameterType {
-  BOOLEAN = "boolean",
-  COLOR = "color",
-  EMBEDDED = "embedded",
-  IMAGE = "image",
-  JSON = "object",
-  LIST = "array",
-  NUMBER = "number",
-  NUMERIC = "numeric",
-  COLUMNS_ORDER = "columns-order",
-  ORDER = "order",
-  SELECT = "select",
-  STANDARD_TEXT = "standard-text",
-  STRING = "string",
-  FONT = "font",
-  SCRIPT = "script",
-  SELECT_PRODUCT_ATTRIBUTES = "select-product-attributes",
-  SELECT_CONTEXT_ATTRIBUTES = "select-context-attributes",
-  APPEARANCE_SETTINGS_CHANGE_ACTION = "appearance-settings-change-action",
-  ADD_BUTTON = "add-button",
-  REMOVE_FACTORY_PARAMETER = "remove-factory-parameter",
-  BADGE = "badge",
-  HTML = "html",
-  STYLE = "style",
+  BOOLEAN = 'boolean',
+  COLOR = 'color',
+  EMBEDDED = 'embedded',
+  IMAGE = 'image',
+  JSON = 'object',
+  LIST = 'array',
+  NUMBER = 'number',
+  NUMERIC = 'numeric',
+  COLUMNS_ORDER = 'columns-order',
+  ORDER = 'order',
+  SELECT = 'select',
+  STANDARD_TEXT = 'standard-text',
+  STRING = 'string',
+  FONT = 'font',
+  SCRIPT = 'script',
+  SELECT_PRODUCT_ATTRIBUTES = 'select-product-attributes',
+  SELECT_CONTEXT_ATTRIBUTES = 'select-context-attributes',
+  APPEARANCE_SETTINGS_CHANGE_ACTION = 'appearance-settings-change-action',
+  ADD_BUTTON = 'add-button',
+  REMOVE_FACTORY_PARAMETER = 'remove-factory-parameter',
+  BADGE = 'badge',
+  HTML = 'html',
+  STYLE = 'style',
   // /** Shouldn't be used as parameter definition itself */
   // DEPENDENCY = "DEPENDENCY",
 }
 export enum BackgroundFitOptionsValues {
-  CONTAIN = "contain",
-  COVER = "cover",
+  CONTAIN = 'contain',
+  COVER = 'cover',
 }
-import { JssStyle } from "jss";
+import { JssStyle } from 'jss';
 
 export declare type ExtensibleJss = JssStyle & {
   extend?: JssStyle[];
 };
 
-
 export const fontParametersWithTextDecoration = (
-  fontColor = "black",
+  fontColor = 'black',
   fontSize = 14,
   fontWeight = 500,
-  textAlign = "center",
-  textDecoration = "underline",
+  textAlign = 'center',
+  textDecoration = 'underline',
 ): ObjectOptions =>
   object(
     {
       fontFamily: font({
-        label: "Font family",
+        label: 'Font family',
         default: {
-          id: "serif",
-          name: "Times New Roman / Times",
-          type: "FALLBACK",
+          id: 'serif',
+          name: 'Times New Roman / Times',
+          type: 'FALLBACK',
           fontFamily: `"Times New Roman", Times, serif`,
         },
       }),
       fontWeight: select({
         options: supportedFontWeightOptions,
         default: fontWeight,
-        label: "Font weight",
+        label: 'Font weight',
       }),
       fontSize: numeric({
-        default: { value: fontSize, unit: "px" },
-        label: "Font size",
-        units: ["px", "em", "rem"],
+        default: { value: fontSize, unit: 'px' },
+        label: 'Font size',
+        units: ['px', 'em', 'rem'],
       }),
-      color: color({ default: fontColor, label: "Color" }),
+      color: color({ default: fontColor, label: 'Color' }),
       textAlign: select({
-        options: ["left", "center", "right", "justify"],
+        options: ['left', 'center', 'right', 'justify'],
         default: textAlign,
-        label: "Alignment",
+        label: 'Alignment',
         format: SelectComponentParameterFormat.BUTTONS,
       }),
       textDecoration: select({
-        options: ["underline", "none"],
+        options: ['underline', 'none'],
         default: textDecoration,
-        label: "Text Decoration",
+        label: 'Text Decoration',
         format: SelectComponentParameterFormat.BUTTONS,
       }),
     },
     {
-      label: "Font",
+      label: 'Font',
     },
   );
- 
 
 export const supportedFontWeightOptions: {
   label: string;
   value: FontWeight;
 }[] = [
-  { label: "Thin", value: 100 },
-  { label: "Extra Light", value: 200 },
-  { label: "Light", value: 300 },
-  { label: "Normal", value: 400 },
-  { label: "Medium", value: 500 },
-  { label: "Semi Bold", value: 600 },
-  { label: "Bold", value: 700 },
-  { label: "Extra Bold", value: 800 },
-  { label: "Black", value: 900 },
+  { label: 'Thin', value: 100 },
+  { label: 'Extra Light', value: 200 },
+  { label: 'Light', value: 300 },
+  { label: 'Normal', value: 400 },
+  { label: 'Medium', value: 500 },
+  { label: 'Semi Bold', value: 600 },
+  { label: 'Bold', value: 700 },
+  { label: 'Extra Bold', value: 800 },
+  { label: 'Black', value: 900 },
 ];
 
-export const padding = (top = 0, right = 0, bottom = 0, left = 0, unit = "px"): ObjectOptions =>
+export const padding = (
+  top = 0,
+  right = 0,
+  bottom = 0,
+  left = 0,
+  unit = 'px',
+): ObjectOptions =>
   object(
     {
       top: numeric({
         default: { value: top, unit },
-        label: "Top",
-        units: ["px", "%", "rem", "em"],
+        label: 'Top',
+        units: ['px', '%', 'rem', 'em'],
       }),
       right: numeric({
         default: { value: right, unit },
-        label: "Right",
-        units: ["px", "%", "rem", "em"],
+        label: 'Right',
+        units: ['px', '%', 'rem', 'em'],
       }),
       bottom: numeric({
         default: { value: bottom, unit },
-        label: "Bottom",
-        units: ["px", "%", "rem", "em"],
+        label: 'Bottom',
+        units: ['px', '%', 'rem', 'em'],
       }),
       left: numeric({
         default: { value: left, unit },
-        label: "Left",
-        units: ["px", "%", "rem", "em"],
+        label: 'Left',
+        units: ['px', '%', 'rem', 'em'],
       }),
     },
     {
-      label: "Padding",
+      label: 'Padding',
       format: EmbeddedComponentParameterFormat.NUMERIC_VALUES_GROUP,
     },
   );
 
-export const margin = (top = 0, right = 0, bottom = 0, left = 0, unit = "px", label = "Margin"): ObjectOptions =>
+export const margin = (
+  top = 0,
+  right = 0,
+  bottom = 0,
+  left = 0,
+  unit = 'px',
+  label = 'Margin',
+): ObjectOptions =>
   object(
     {
       top: numeric({
         default: { value: top, unit },
-        label: "Top",
-        units: ["px", "%", "rem", "em"],
+        label: 'Top',
+        units: ['px', '%', 'rem', 'em'],
       }),
       right: numeric({
         default: { value: right, unit },
-        label: "Right",
-        units: ["px", "%", "rem", "em"],
+        label: 'Right',
+        units: ['px', '%', 'rem', 'em'],
       }),
       bottom: numeric({
         default: { value: bottom, unit },
-        label: "Bottom",
-        units: ["px", "%", "rem", "em"],
+        label: 'Bottom',
+        units: ['px', '%', 'rem', 'em'],
       }),
       left: numeric({
         default: { value: left, unit },
-        label: "Left",
-        units: ["px", "%", "rem", "em"],
+        label: 'Left',
+        units: ['px', '%', 'rem', 'em'],
       }),
     },
     {
@@ -174,77 +185,82 @@ export const margin = (top = 0, right = 0, bottom = 0, left = 0, unit = "px", la
   );
 
 export const fontParameters = (
-  fontColor = "black",
+  fontColor = 'black',
   fontSize = 14,
   fontWeight = 500,
-  textAlign = "center",
+  textAlign = 'center',
 ): ObjectOptions =>
   object(
     {
       fontFamily: font({
-        label: "Font family",
+        label: 'Font family',
         default: {
-          id: "serif",
-          name: "Times New Roman / Times",
-          type: "FALLBACK",
+          id: 'serif',
+          name: 'Times New Roman / Times',
+          type: 'FALLBACK',
           fontFamily: `"Times New Roman", Times, serif`,
         },
       }),
       fontWeight: select({
         options: supportedFontWeightOptions,
         default: fontWeight,
-        label: "Font weight",
+        label: 'Font weight',
       }),
       fontSize: numeric({
-        default: { value: fontSize, unit: "px" },
-        label: "Font size",
-        units: ["px", "em", "rem"],
+        default: { value: fontSize, unit: 'px' },
+        label: 'Font size',
+        units: ['px', 'em', 'rem'],
       }),
-      color: color({ default: fontColor, label: "Color" }),
+      color: color({ default: fontColor, label: 'Color' }),
       textAlign: select({
-        options: ["left", "center", "right", "justify"],
+        options: ['left', 'center', 'right', 'justify'],
         default: textAlign,
-        label: "Alignment",
+        label: 'Alignment',
         format: SelectComponentParameterFormat.BUTTONS,
       }),
     },
     {
-      label: "Font",
+      label: 'Font',
     },
   );
 
-export const border = (label = "Border", lineStyle = "none", borderColor = "black", width = 0): ObjectOptions =>
+export const border = (
+  label = 'Border',
+  lineStyle = 'none',
+  borderColor = 'black',
+  width = 0,
+): ObjectOptions =>
   object(
     {
       lineStyle: select({
-        options: ["none", "solid", "dashed", "dotted"],
+        options: ['none', 'solid', 'dashed', 'dotted'],
         default: lineStyle,
-        label: "Line style",
+        label: 'Line style',
         format: SelectComponentParameterFormat.BUTTONS,
       }),
       width: numeric({
-        default: { value: width, unit: "px" },
-        label: "Width",
-        units: ["px", "em", "rem"],
+        default: { value: width, unit: 'px' },
+        label: 'Width',
+        units: ['px', 'em', 'rem'],
         displayIf: {
           expressions: [
             {
-              path: "lineStyle",
+              path: 'lineStyle',
               comparator: ExpressionComparator.NOT_EQUALS,
-              value: "none",
+              value: 'none',
             },
           ],
         },
       }),
       color: color({
         default: borderColor,
-        label: "Color",
+        label: 'Color',
         displayIf: {
           expressions: [
             {
-              path: "lineStyle",
+              path: 'lineStyle',
               comparator: ExpressionComparator.NOT_EQUALS,
-              value: "none",
+              value: 'none',
             },
           ],
         },
@@ -255,18 +271,24 @@ export const border = (label = "Border", lineStyle = "none", borderColor = "blac
     },
   );
 
-export const size = (height = 0, width = 0, heightUnit = "%", widthUnit = "%", label = "Size"): ObjectOptions =>
+export const size = (
+  height = 0,
+  width = 0,
+  heightUnit = '%',
+  widthUnit = '%',
+  label = 'Size',
+): ObjectOptions =>
   object(
     {
       width: numeric({
         default: { value: width, unit: widthUnit },
-        label: "Width",
-        units: ["px", "em", "rem", "%", "auto"],
+        label: 'Width',
+        units: ['px', 'em', 'rem', '%', 'auto'],
       }),
       height: numeric({
         default: { value: height, unit: heightUnit },
-        label: "Height",
-        units: ["px", "em", "rem", "%", "auto"],
+        label: 'Height',
+        units: ['px', 'em', 'rem', '%', 'auto'],
       }),
     },
     {
@@ -275,62 +297,74 @@ export const size = (height = 0, width = 0, heightUnit = "%", widthUnit = "%", l
     },
   );
 
-export const borderStyles = (lineStyle = "none", borderColor = "black", width = 0, radius = 0) =>
+export const borderStyles = (
+  lineStyle = 'none',
+  borderColor = 'black',
+  width = 0,
+  radius = 0,
+) =>
   object(
     {
       lineStyle: select({
-        options: ["none", "solid", "dashed", "dotted"],
+        options: ['none', 'solid', 'dashed', 'dotted'],
         default: lineStyle,
-        label: "Line style",
+        label: 'Line style',
         format: SelectComponentParameterFormat.BUTTONS,
       }),
       width: numeric({
-        default: { value: width, unit: "px" },
-        label: "Width",
-        units: ["px", "em", "rem"],
+        default: { value: width, unit: 'px' },
+        label: 'Width',
+        units: ['px', 'em', 'rem'],
         displayIf: {
           expressions: [
             {
-              path: "lineStyle",
+              path: 'lineStyle',
               comparator: ExpressionComparator.NOT_EQUALS,
-              value: "none",
+              value: 'none',
             },
           ],
         },
       }),
       color: color({
         default: borderColor,
-        label: "Color",
+        label: 'Color',
         displayIf: {
           expressions: [
             {
-              path: "lineStyle",
+              path: 'lineStyle',
               comparator: ExpressionComparator.NOT_EQUALS,
-              value: "none",
+              value: 'none',
             },
           ],
         },
       }),
       radius: numeric({
-        default: { value: radius, unit: "px" },
-        label: "Radius",
-        units: ["px", "em", "rem", "%"],
+        default: { value: radius, unit: 'px' },
+        label: 'Radius',
+        units: ['px', 'em', 'rem', '%'],
         displayIf: {
           expressions: [
             {
-              path: "lineStyle",
+              path: 'lineStyle',
               comparator: ExpressionComparator.NOT_EQUALS,
-              value: "none",
+              value: 'none',
             },
           ],
         },
       }),
     },
-    { label: "border" },
+    { label: 'border' },
   );
 
-export const configuratorButtonStateValues = ["default", "hover", "selected", "focus", "disabled"];
-const capitalize = (label: string): string => label.charAt(0).toUpperCase() + label.slice(1);
+export const configuratorButtonStateValues = [
+  'default',
+  'hover',
+  'selected',
+  'focus',
+  'disabled',
+];
+const capitalize = (label: string): string =>
+  label.charAt(0).toUpperCase() + label.slice(1);
 
 export interface NumericValue {
   value: number;
@@ -346,7 +380,7 @@ export class PaddingConfiguration {
   public left: NumericValue = { value: 0 };
 }
 
-export const fallbackFontFamily = "Arial, Helvetica, sans-serif";
+export const fallbackFontFamily = 'Arial, Helvetica, sans-serif';
 
 export type FontWeight = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
 
@@ -359,9 +393,9 @@ export class FontConfiguration {
 
   public fontSize: NumericValue = { value: 16 };
 
-  public color: ColorValue | null = "black";
+  public color: ColorValue | null = 'black';
 
-  public textAlign: "left" | "center" | "right" | "justify" = "left";
+  public textAlign: 'left' | 'center' | 'right' | 'justify' = 'left';
 }
 
 export class DirectionalNumericValuesConfiguration {
@@ -382,14 +416,18 @@ const applyDecimalPrecisionTo = (
   return (value: number) => mathOperation(value * multiplier) / multiplier;
 };
 
-const isObject = (input: unknown): input is Record<string, unknown> => typeof input === "object" && input != null;
+const isObject = (input: unknown): input is Record<string, unknown> =>
+  typeof input === 'object' && input != null;
 
 export class NumericValueUtil implements NumericValue {
   public static isNumericValue(input: unknown): input is NumericValue {
-    if (!isObject(input) || typeof input["value"] !== "number") {
+    if (!isObject(input) || typeof input['value'] !== 'number') {
       return false;
     }
-    if (typeof input["unit"] !== "string" && typeof input["unit"] !== "undefined") {
+    if (
+      typeof input['unit'] !== 'string' &&
+      typeof input['unit'] !== 'undefined'
+    ) {
       return false;
     }
     return true;
@@ -397,7 +435,7 @@ export class NumericValueUtil implements NumericValue {
 
   public static parseDirectionalNumericValue = (
     values: number[],
-    unit = "px",
+    unit = 'px',
   ): DirectionalNumericValuesConfiguration => {
     const valuesLength = values.length;
     const indexes = [
@@ -407,7 +445,9 @@ export class NumericValueUtil implements NumericValue {
       [0, 1, 2, 3],
     ];
 
-    const [top, right, bottom, left] = indexes[valuesLength - 1].map((index) => values[index]);
+    const [top, right, bottom, left] = indexes[valuesLength - 1].map(
+      (index) => values[index],
+    );
 
     return {
       top: { value: top, unit },
@@ -417,16 +457,18 @@ export class NumericValueUtil implements NumericValue {
     };
   };
 
-  public static stringifyNumericValue = (numericValue?: NumericValue): string | null => {
+  public static stringifyNumericValue = (
+    numericValue?: NumericValue,
+  ): string | null => {
     if (numericValue == null) {
       return null;
     }
     const { value, unit } = numericValue;
-    if (typeof value !== "number" || unit === "auto") {
+    if (typeof value !== 'number' || unit === 'auto') {
       return null;
     }
     if (value === 0) {
-      return "0px";
+      return '0px';
     }
 
     return `${value}${unit}`;
@@ -440,14 +482,20 @@ export class NumericValueUtil implements NumericValue {
     return !!value;
   }
 
-  public static from({ value, unit }: NumericValue = zeroNumericValue): NumericValueUtil {
+  public static from({
+    value,
+    unit,
+  }: NumericValue = zeroNumericValue): NumericValueUtil {
     return new NumericValueUtil(value, unit);
   }
 
   public value: number;
   public unit: string | undefined;
 
-  constructor(value: string | number = 0, unit: string | undefined = undefined) {
+  constructor(
+    value: string | number = 0,
+    unit: string | undefined = undefined,
+  ) {
     const parsedValue = Number.parseFloat(`${value}`);
     this.value = Number.isNaN(parsedValue) ? 0 : parsedValue;
     this.unit = unit;
@@ -479,13 +527,19 @@ export class NumericValueUtil implements NumericValue {
 
   public floor(fractionDigits = 0): this {
     if (this.notDefined()) return this;
-    this.value = applyDecimalPrecisionTo(Math.floor, fractionDigits)(this.value);
+    this.value = applyDecimalPrecisionTo(
+      Math.floor,
+      fractionDigits,
+    )(this.value);
     return this;
   }
 
   public round(fractionDigits = 0): this {
     if (this.notDefined()) return this;
-    this.value = applyDecimalPrecisionTo(Math.round, fractionDigits)(this.value);
+    this.value = applyDecimalPrecisionTo(
+      Math.round,
+      fractionDigits,
+    )(this.value);
     return this;
   }
 
@@ -495,10 +549,10 @@ export class NumericValueUtil implements NumericValue {
     return this;
   }
 
-  public toString(fallback = "", fallbackWhenZero = false): string {
+  public toString(fallback = '', fallbackWhenZero = false): string {
     if (this.notDefined()) return fallback;
     if (fallbackWhenZero && this.value === 0) return fallback;
-    return `${this.value}${this.unit ?? ""}`;
+    return `${this.value}${this.unit ?? ''}`;
   }
 
   public getMobileValues(maxValue: number): string {
@@ -515,7 +569,10 @@ export const createFontFamilyStyle = (
 ): string | null => fontFamilyConfiguration ?? null;
 
 export const createFontStyle = (
-  fontConfiguration: FontConfiguration | FontWithoutAlignConfiguration | undefined,
+  fontConfiguration:
+    | FontConfiguration
+    | FontWithoutAlignConfiguration
+    | undefined,
 ): JssStyle => {
   if (!fontConfiguration) {
     return {};
@@ -533,18 +590,18 @@ export const createFontStyle = (
   };
 };
 
-export type BorderStyle = "none" | "dotted" | "dashed" | "solid";
+export type BorderStyle = 'none' | 'dotted' | 'dashed' | 'solid';
 
 export class BorderConfiguration {
-  public lineStyle: BorderStyle = "solid";
-  public color: ColorValue = "black";
+  public lineStyle: BorderStyle = 'solid';
+  public color: ColorValue = 'black';
   public width: NumericValue = { value: 1 };
   public radius: NumericValue = { value: 0 };
 }
 
 export const createBorderStyle = (
   { color, lineStyle: style, width, radius }: BorderConfiguration,
-  target?: "top" | "right" | "bottom" | "left" | undefined,
+  target?: 'top' | 'right' | 'bottom' | 'left' | undefined,
 ): JssStyle =>
   target == null
     ? {
@@ -556,7 +613,7 @@ export const createBorderStyle = (
         },
       }
     : {
-        border: "none",
+        border: 'none',
         [`border${capitalize(target)}`]: {
           color,
           style,
@@ -565,7 +622,9 @@ export const createBorderStyle = (
         },
       };
 
-export const createMarginStyles = (configuration: MarginConfiguration): JssStyle => ({
+export const createMarginStyles = (
+  configuration: MarginConfiguration,
+): JssStyle => ({
   margin: {
     top: NumericValueUtil.from(configuration.top).toString(),
     right: NumericValueUtil.from(configuration.right).toString(),
@@ -574,7 +633,9 @@ export const createMarginStyles = (configuration: MarginConfiguration): JssStyle
   },
 });
 
-export const createPaddingStyles = (configuration: PaddingConfiguration): JssStyle => ({
+export const createPaddingStyles = (
+  configuration: PaddingConfiguration,
+): JssStyle => ({
   padding: {
     top: NumericValueUtil.from(configuration.top).toString(),
     right: NumericValueUtil.from(configuration.right).toString(),
@@ -583,10 +644,10 @@ export const createPaddingStyles = (configuration: PaddingConfiguration): JssSty
   },
 });
 
-export type ConfigurationWithStates<States extends string = "default", Configuration = unknown> = Record<
-  States,
-  Configuration
->;
+export type ConfigurationWithStates<
+  States extends string = 'default',
+  Configuration = unknown,
+> = Record<States, Configuration>;
 
 export interface NumericValue {
   value: number;
@@ -600,10 +661,12 @@ export class FontWithoutAlignConfiguration {
 
   public fontSize: NumericValue = { value: 16 };
 
-  public color: string | null = "black";
+  public color: string | null = 'black';
 }
 
-export const createConfigurationWithStates = <CustomConfigurationWithStates extends ConfigurationWithStates>(
+export const createConfigurationWithStates = <
+  CustomConfigurationWithStates extends ConfigurationWithStates,
+>(
   states: string[],
   ConfigurationConstructor: new () => unknown,
 ): { new (): CustomConfigurationWithStates } => {
@@ -614,10 +677,10 @@ export const createConfigurationWithStates = <CustomConfigurationWithStates exte
   return classPlaceholder;
 };
 
-export const createBackgroundColor = (defaultValue = "#0070D8") => {
+export const createBackgroundColor = (defaultValue = '#0070D8') => {
   return color({
     default: defaultValue,
-    label: "Background color",
+    label: 'Background color',
   });
 };
 
@@ -625,32 +688,44 @@ export const supportedFontWeightOptions: {
   label: string;
   value: FontWeight;
 }[] = [
-  { label: "Thin", value: 100 },
-  { label: "Extra Light", value: 200 },
-  { label: "Light", value: 300 },
-  { label: "Normal", value: 400 },
-  { label: "Medium", value: 500 },
-  { label: "Semi Bold", value: 600 },
-  { label: "Bold", value: 700 },
-  { label: "Extra Bold", value: 800 },
-  { label: "Black", value: 900 },
+  { label: 'Thin', value: 100 },
+  { label: 'Extra Light', value: 200 },
+  { label: 'Light', value: 300 },
+  { label: 'Normal', value: 400 },
+  { label: 'Medium', value: 500 },
+  { label: 'Semi Bold', value: 600 },
+  { label: 'Bold', value: 700 },
+  { label: 'Extra Bold', value: 800 },
+  { label: 'Black', value: 900 },
 ];
 
-export const icon = (svg = "", value = 14, defaultColor = "black"): ObjectOptions =>
+export const icon = (
+  svg = '',
+  value = 14,
+  defaultColor = 'black',
+): ObjectOptions =>
   object(
     {
-      svgUrl: image({ default: svg, label: "SvgURL", format: ImageComponentParameterFormat.ICON_LIBRARY }),
-      size: numeric({
-        default: { value: value, unit: "px" },
-        label: "Size",
-        units: ["px", "%", "rem", "em"],
+      svgUrl: image({
+        default: svg,
+        label: 'SvgURL',
+        format: ImageComponentParameterFormat.ICON_LIBRARY,
       }),
-      color: color({ default: defaultColor, label: "Color" }),
+      size: numeric({
+        default: { value: value, unit: 'px' },
+        label: 'Size',
+        units: ['px', '%', 'rem', 'em'],
+      }),
+      color: color({ default: defaultColor, label: 'Color' }),
     },
-    { label: "Icon", addSeparator: true, format: EmbeddedComponentParameterFormat.ACCORDION },
+    {
+      label: 'Icon',
+      addSeparator: true,
+      format: EmbeddedComponentParameterFormat.ACCORDION,
+    },
   );
 
-export const fallbackFontFamily = "Arial, Helvetica, sans-serif";
+export const fallbackFontFamily = 'Arial, Helvetica, sans-serif';
 
 export class MarginConfiguration {
   public top: NumericValue = { value: 0 };
@@ -659,7 +734,9 @@ export class MarginConfiguration {
   public left: NumericValue = { value: 0 };
 }
 
-export const createSizeStyles = (config: SizeValuesConfiguration): ExtensibleJss => {
+export const createSizeStyles = (
+  config: SizeValuesConfiguration,
+): ExtensibleJss => {
   return {
     width: NumericValueUtil.stringifyNumericValue(config.width),
     height: NumericValueUtil.stringifyNumericValue(config.height),
@@ -667,26 +744,39 @@ export const createSizeStyles = (config: SizeValuesConfiguration): ExtensibleJss
 };
 
 export const backgroundFitOptions: any = {
-  label: "Object fit",
+  label: 'Object fit',
   type: MarketplaceComponentParameterType.SELECT,
   default: BackgroundFitOptionsValues.COVER,
-  options: [BackgroundFitOptionsValues.CONTAIN, BackgroundFitOptionsValues.COVER],
+  options: [
+    BackgroundFitOptionsValues.CONTAIN,
+    BackgroundFitOptionsValues.COVER,
+  ],
 };
 
-export const justifyContent = (defaultValue: unknown = "flex-start"): ObjectOptions =>
+export const justifyContent = (
+  defaultValue: unknown = 'flex-start',
+): ObjectOptions =>
   object(
     {
       value: select({
-        options: ["flex-start", "center", "flex-end", "space-between", "space-around"],
+        options: [
+          'flex-start',
+          'center',
+          'flex-end',
+          'space-between',
+          'space-around',
+        ],
         default: defaultValue,
-        label: "Justify Content",
+        label: 'Justify Content',
       }),
     },
-    { label: "Justify Content" },
+    { label: 'Justify Content' },
   );
 
-   
-export function getRecommendationPropertyValue(product: Product, propertyName: string): string | undefined {
+export function getRecommendationPropertyValue(
+  product: Product,
+  propertyName: string,
+): string | undefined {
   if (!product.additionalProperties?.[propertyName]) {
     const foundProperty = product.properties[propertyName];
     return foundProperty?.value;
@@ -715,13 +805,18 @@ export const getProductPropertyDefinitionByName = (
   if (additionalProperties?.[propertyName]) {
     propertyDefinition = additionalProperties[propertyName];
   } else if (Array.isArray(properties)) {
-    propertyDefinition = getRecommendationProperty(recommendation, propertyName);
+    propertyDefinition = getRecommendationProperty(
+      recommendation,
+      propertyName,
+    );
   }
   return propertyDefinition;
 };
 
-
-export function getRecommendationProperty(product: Product, propertyName: string): ProductProperty {
+export function getRecommendationProperty(
+  product: Product,
+  propertyName: string,
+): ProductProperty {
   if (!product.additionalProperties?.[propertyName]) {
     const foundProperty = product.properties[propertyName];
     return foundProperty;

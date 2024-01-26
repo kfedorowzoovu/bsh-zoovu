@@ -17,22 +17,26 @@ import {
   ComponentStyle,
   Prop,
   Mixins,
-  ComponentStyleDefinition
-} from "@zoovu/runner-browser-api";
-import { ProductClickOutLink } from "../../../helpers/dealer-locator-button.directive";
-import { DealerLocatorButtonConfiguration } from "../custom-buttons.configuration";
-import { dealerLocatorButtonStyle } from "./dealer-locator-button.styles";
-import { getRecommendationPropertyValue, getProductPropertyByName } from "../../../helpers/helpers";
-import { CustomURLPropertyName } from "./dealer-locator-button.enum";
-import { getContextValue } from "../../../helpers/context-from-advisor-modal";
-import { ZoovuFacadeMixin } from "../../../helpers/zoovu-facade.mixin";
-import { Product } from "@zoovu/exd-api";
+  ComponentStyleDefinition,
+} from '@zoovu/runner-browser-api';
+import { ProductClickOutLink } from '../../../helpers/dealer-locator-button.directive';
+import { DealerLocatorButtonConfiguration } from '../custom-buttons.configuration';
+import { dealerLocatorButtonStyle } from './dealer-locator-button.styles';
+import {
+  getRecommendationPropertyValue,
+  getProductPropertyByName,
+} from '../../../helpers/helpers';
+import { CustomURLPropertyName } from './dealer-locator-button.enum';
+import { getContextValue } from '../../../helpers/context-from-advisor-modal';
+import { Product, ZoovuFacadeMixin } from '@zoovu/exd-api';
 @Component({
   directives: {
     ProductClickOutLink,
   },
 })
-  export default class DealerLocatorButtonComponent extends Mixins(ZoovuFacadeMixin) {
+export default class DealerLocatorButtonComponent extends Mixins(
+  ZoovuFacadeMixin,
+) {
   @Prop()
   public productRecommendation: Product;
 
@@ -42,26 +46,33 @@ import { Product } from "@zoovu/exd-api";
   @ComponentConfig(DealerLocatorButtonConfiguration)
   componentConfiguration: DealerLocatorButtonConfiguration;
 
-
   customURLPropertyName = CustomURLPropertyName.CUSTOM_BUTTON_URL;
 
-  isProductionEnv: boolean = window.hasOwnProperty("T");
+  isProductionEnv: boolean = window.hasOwnProperty('T');
 
   dealersLocatorVisiblity;
 
   hideDealersLocatorForShopProducts;
 
-  dealersLocatorUrl: string = "";
+  dealersLocatorUrl: string = '';
 
   async mounted() {
-      await this.zoovuFacade.waitForIdle();
-    this.dealersLocatorVisiblity = getContextValue(this.zoovuFacade, "displayDealerLocatorButton", "boolean") as boolean;
+    await this.zoovuFacade.waitForAdvisorInitialization();
+    this.dealersLocatorVisiblity = getContextValue(
+      this.zoovuFacade,
+      'displayDealerLocatorButton',
+      'boolean',
+    ) as boolean;
     this.hideDealersLocatorForShopProducts = getContextValue(
       this.zoovuFacade,
-      "hideDealerLocatorForShopProducts",
-      "boolean"
+      'hideDealerLocatorForShopProducts',
+      'boolean',
     ) as boolean;
-    this.dealersLocatorUrl = getContextValue(this.zoovuFacade, "dealerLocatorButtonURL", "string") as string;
+    this.dealersLocatorUrl = getContextValue(
+      this.zoovuFacade,
+      'dealerLocatorButtonURL',
+      'string',
+    ) as string;
   }
 
   get showButtonInEditorMode(): boolean {
@@ -84,16 +95,21 @@ import { Product } from "@zoovu/exd-api";
 
   get isProductShopType(): boolean {
     return (
-      getRecommendationPropertyValue(this.productRecommendation, "catalogVisibilityType") === "SHOP" &&
-      this.hideDealersLocatorForShopProducts
+      getRecommendationPropertyValue(
+        this.productRecommendation,
+        'catalogVisibilityType',
+      ) === 'SHOP' && this.hideDealersLocatorForShopProducts
     );
   }
 
   get propertyValue(): string | undefined {
-    if (this.componentConfiguration.attributeName === "sku") {
-      return getRecommendationPropertyValue(this.productRecommendation, "sku");
+    if (this.componentConfiguration.attributeName === 'sku') {
+      return getRecommendationPropertyValue(this.productRecommendation, 'sku');
     }
-    return getProductPropertyByName(this.productRecommendation, this.componentConfiguration.attributeName)?.valueTranslation;
+    return getProductPropertyByName(
+      this.productRecommendation,
+      this.componentConfiguration.attributeName,
+    )?.valueTranslation;
   }
 
   get dealersLocatorUrlFromContext(): string {

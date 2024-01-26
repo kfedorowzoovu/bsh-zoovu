@@ -12,7 +12,6 @@ This component introduces an "Add to Cart" button.
 
 `yarn dev` - This command runs the project in development mode, allowing you to view your remote component in the Experience Designer (EXD). Log in to your Conversational Studio account, open the Experience Designer, and your component will be displayed within the EXD interface.
 
-
 ## How It Works
 
 - **Client Environment:**
@@ -42,6 +41,7 @@ This component introduces an "Add to Cart" button.
 ## Additional Details
 
 - **EXD Configurations:**
+
   - Configurations have been set up to style the "Add to Cart" button, providing flexibility in appearance.
 
 - **Powerful Functionalities:**
@@ -56,6 +56,3 @@ This component introduces an "Add to Cart" button.
 ## Conclusion
 
 This "Add to Cart" button is a versatile component designed to enhance the shopping experience. Its dynamic visibility, controlled by data and context variables, makes it a powerful tool for customization within the client's environment. Integration details, EXD configurations, and additional functionalities provide a comprehensive solution for diverse client needs.
-
-
-
