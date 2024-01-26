@@ -1,1 +1,1 @@
-export { default } from "./custom-buttons.component.vue";
+export { default } from './custom-buttons.component.vue';

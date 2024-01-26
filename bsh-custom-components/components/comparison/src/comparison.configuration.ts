@@ -1,11 +1,11 @@
-import { MarginConfiguration } from "../../helpers/helpers";
+import { MarginConfiguration } from '../../helpers/helpers';
 
 export class ComparisonConfiguration {
-  comparisonPageUrl = "";
+  comparisonPageUrl = '';
   margin: MarginConfiguration = new MarginConfiguration();
-  compareTitle = "";
-  compareStart = "";
-  compareSelector = "";
-  maxNumber = "";
-  checkIcon = "";
+  compareTitle = '';
+  compareStart = '';
+  compareSelector = '';
+  maxNumber = '';
+  checkIcon = '';
 }

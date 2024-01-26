@@ -27,51 +27,48 @@
 </template>
 
 <script lang="ts">
-  import {
-    Mixins,
-    Component,
-    ComponentConfig,
-    Prop,
-    ComponentStyle,
-    ComponentStyleDefinition,
-  } from "@zoovu/runner-browser-api";
-  import { CustomButtonsConfiguration } from "./custom-buttons.configuration";
-  import DealerLocatorButtonComponent from "./dealer-locator-button/dealer-locator-button.component.vue";
-  import BuyOnlineButtonComponent from "./buy-online-button/buy-online-button.component.vue";
-  import CombinableProductsButtonComponent from "./combinable-products-button/combinable-products-button.component.vue";
-  import RetailerLogosView from "./retailer-logo-button/retailer-logo-button.component.vue";
-  import { customButtonsStyles } from "./custom-buttons.styles";
-  import { RetailerLogosData } from "../../helpers/types";
-  import { ZoovuFacadeMixin } from "../../helpers/zoovu-facade.mixin";
-  import { Product } from  "@zoovu/exd-api";
+import {
+  Mixins,
+  Component,
+  ComponentConfig,
+  Prop,
+  ComponentStyle,
+  ComponentStyleDefinition,
+} from '@zoovu/runner-browser-api';
+import { CustomButtonsConfiguration } from './custom-buttons.configuration';
+import DealerLocatorButtonComponent from './dealer-locator-button/dealer-locator-button.component.vue';
+import BuyOnlineButtonComponent from './buy-online-button/buy-online-button.component.vue';
+import CombinableProductsButtonComponent from './combinable-products-button/combinable-products-button.component.vue';
+import RetailerLogosView from './retailer-logo-button/retailer-logo-button.component.vue';
+import { customButtonsStyles } from './custom-buttons.styles';
+import { RetailerLogosData } from '../../helpers/types';
+import { ZoovuFacadeMixin, Product } from '@zoovu/exd-api';
 
-  /**
-   * BSH - Custom buttons
-   */
-  @Component({
-    components: {
-      BuyOnlineButtonComponent,
-      DealerLocatorButtonComponent,
-      CombinableProductsButtonComponent,
-      RetailerLogosView,
-    },
-  })
+/**
+ * BSH - Custom buttons
+ */
+@Component({
+  components: {
+    BuyOnlineButtonComponent,
+    DealerLocatorButtonComponent,
+    CombinableProductsButtonComponent,
+    RetailerLogosView,
+  },
+})
+export default class CustomButtonsComponent extends Mixins(ZoovuFacadeMixin) {
+  @ComponentConfig(CustomButtonsConfiguration)
+  componentConfiguration: CustomButtonsConfiguration;
 
-    export default class CustomButtonsComponent extends Mixins(ZoovuFacadeMixin) {
+  @ComponentStyle(customButtonsStyles)
+  public componentStyle: ComponentStyleDefinition;
 
-    @ComponentConfig(CustomButtonsConfiguration)
-    componentConfiguration: CustomButtonsConfiguration;
+  @Prop()
+  public productRecommendation: Product;
 
-    @ComponentStyle(customButtonsStyles)
-    public componentStyle: ComponentStyleDefinition;
+  retailersLogosDataFromApi = [];
 
-    @Prop()
-    public productRecommendation: Product;
-
-    retailersLogosDataFromApi = [];
-
-    handleChildEvent(responseData: RetailerLogosData) {
-      this.retailersLogosDataFromApi.push(responseData);
-    }
+  handleChildEvent(responseData: RetailerLogosData) {
+    this.retailersLogosDataFromApi.push(responseData);
   }
+}
 </script>

@@ -25,9 +25,11 @@ Additionally, we have implemented configurations that enable the application of 
 Follow these steps to integrate the custom "Load More" button into your application:
 
 1. **Disable Existing Load More Button:**
+
    - Ensure the current global "Load More" button is disabled to prevent conflicts with the custom version.
 
 2. **Replace with Custom Button:**
+
    - Integrate the custom "Load More" button specifically designed for BSH to enhance functionality and avoid caching issues.
 
 3. **Apply Styling Configurations:**
@@ -36,8 +38,6 @@ Follow these steps to integrate the custom "Load More" button into your applicat
 ## Configurations
 
 The custom "Load More" button comes with configurations that allow for easy styling adjustments. These configurations provide flexibility in tailoring the button's appearance to match the overall design of your application.
-
-
 
 ## Note
 

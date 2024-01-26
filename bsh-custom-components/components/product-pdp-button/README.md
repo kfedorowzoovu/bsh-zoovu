@@ -11,6 +11,7 @@
 ## Overview
 
 This document provides information about the BSH Product Image component, specifically focusing on the `monitorCluster`.
+
 ## Overview
 
 This document provides information about the BSH Product PDP (Product Detail Page) Button component. The component is designed to enhance the user experience for both top products and recommendation products.
@@ -28,6 +29,7 @@ This component operates with a tracking redirected URL, implemented to observe w
 To activate the BSH Product PDP Button, follow these steps:
 
 1. **Access 'Top Product'/'Recommendations' Settings:**
+
    - Navigate to the settings for 'Top Product' or 'Recommendations.'
 
 2. **Enable the Product PDP Button:**

@@ -1,4 +1,4 @@
-declare module "*.vue" {
-  import { Vue } from "@zoovu/runner-browser-api";
+declare module '*.vue' {
+  import { Vue } from '@zoovu/runner-browser-api';
   export default Vue;
 }

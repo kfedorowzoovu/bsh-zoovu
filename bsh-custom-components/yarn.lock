@@ -793,15 +793,15 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@zoovu/exd-api@0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@zoovu/exd-api/-/exd-api-0.2.0.tgz#8b7032dbd81a64a3bafa3dea79748ce3c4ead42a"
-  integrity sha512-nhXOhRRbPKwMvF9EGFI43ZtIfQxO2USOrupRsvWdemCRQEGakzrF49Qvv76sdkpEDWpwSObwjfUs/+R8CjJIfg==
+"@zoovu/exd-api@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@zoovu/exd-api/-/exd-api-0.4.0.tgz#7bcc0f956bcc36cd9f0906d3363dc305155f4ff3"
+  integrity sha512-f2mF3mVQiGqeqP/qcipyvM8lw9yEin/3UYyD5ndbchtxyFmb7nXp4UjrGIjqminPEPCdzvVPzSjLcmJuOhNkYw==
 
-"@zoovu/exd-scripts@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@zoovu/exd-scripts/-/exd-scripts-0.3.0.tgz#3a9fb551d5717b0ac0d7aaee6fbe492a7e4749c5"
-  integrity sha512-zjfIzG08oHXB6vnMnntbzA6ReWUBDnvUIj5hEDqoEl+AwgNmMufjRoIUIsmlk2oLjK0RgumyB2qGHsxmQ9U90Q==
+"@zoovu/exd-scripts@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@zoovu/exd-scripts/-/exd-scripts-0.4.0.tgz#a7b751136d0f90e0abcdf16253d97597ae1b11d8"
+  integrity sha512-q7pEDh4Pw3rqpqys9RMF6mRoV26kydYnKyH5jk6Ggenk0FmX/fwoBkt4tYu4cdr5yKxB3VKxJXlIKytJV5zsTA==
   dependencies:
     "@babel/core" "^7.13.10"
     "@zoovu/runner-browser-api" "5.162.3"
@@ -6075,7 +6075,7 @@ prepend-http@^1.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
   integrity sha512-PhmXi5XmoyKw1Un4E+opM2KcsJInDvKyuOumcjjw3waw86ZNjHwVUOOWLc4bCzLdcKNaWBH9e99sbWzDQsVaYg==
 
-"prettier@^1.18.2 || ^2.0.0":
+"prettier@^1.18.2 || ^2.0.0", prettier@^2.5.1:
   version "2.8.8"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.8.tgz#e8c5d7e98a4305ffe3de2e1fc4aca1a71c28b1da"
   integrity sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==

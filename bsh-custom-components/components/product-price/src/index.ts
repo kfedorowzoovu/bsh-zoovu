@@ -1,1 +1,1 @@
-export { default } from "./product-price.component.vue";
+export { default } from './product-price.component.vue';

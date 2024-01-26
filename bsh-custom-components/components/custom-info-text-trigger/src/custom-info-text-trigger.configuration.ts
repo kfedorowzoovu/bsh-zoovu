@@ -3,8 +3,8 @@ import {
   PaddingConfiguration,
   FontConfiguration,
   BorderConfiguration,
-} from "@zoovu/theme-editor-parameter-types";
-import { NumericValue } from "../../helpers/helpers";
+} from '@zoovu/theme-editor-parameter-types';
+import { NumericValue } from '../../helpers/helpers';
 
 export class InfoTextModalConfiguration {
   font: FontConfiguration = new FontConfiguration();
@@ -15,16 +15,16 @@ export class InfoTextModalConfiguration {
 }
 
 export class CustomInfoTextTriggerConfiguration {
-  tooltipText = "";
-  iconBackground = "";
-  iconHoverBackground = "";
-  iconColor = "";
+  tooltipText = '';
+  iconBackground = '';
+  iconHoverBackground = '';
+  iconColor = '';
   iconBorder: BorderConfiguration = new BorderConfiguration();
   width: NumericValue = { value: 20 };
   tooltipWidth: NumericValue = { value: 300 };
   tooltipPadding: PaddingConfiguration = new PaddingConfiguration();
   tooltipBorder: BorderConfiguration = new BorderConfiguration();
-  tooltipBackground = "";
+  tooltipBackground = '';
   tooltipFont: FontConfiguration = new FontConfiguration();
   infoTextModal: InfoTextModalConfiguration = new InfoTextModalConfiguration();
   moveIconToAnswerTextSection = false;

@@ -1,1 +1,1 @@
-export { default } from "./comparison.component.vue";
+export { default } from './comparison.component.vue';

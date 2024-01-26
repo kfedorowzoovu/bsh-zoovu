@@ -10,107 +10,120 @@
 </template>
 
 <script lang="ts">
-  import {
-    Component,
-    ComponentConfig,
-    ComponentStyle,
-    Prop,
-    Mixins,
-    ComponentStyleDefinition
-  } from "@zoovu/runner-browser-api";
-  import { combinableProductsStyle } from "./combinable-products-button.styles";
-  import { CombinableProductsButtonConfiguration } from "../custom-buttons.configuration";
-  import { getProductPropertyDefinitionByName } from "../../../helpers/helpers";
-  import axios from "axios";
-  import { ProductClickOutLink } from "./combinable-products-button.directive";
-  import { CustomURLPropertyName } from "./combinable-products-button.enum";
-  import { getContextValue } from "../../../helpers/context-from-advisor-modal";
-  import { ZoovuFacadeMixin } from "../../../helpers/zoovu-facade.mixin";
-  import { Product } from "@zoovu/exd-api";
+import {
+  Component,
+  ComponentConfig,
+  ComponentStyle,
+  Prop,
+  Mixins,
+  ComponentStyleDefinition,
+} from '@zoovu/runner-browser-api';
+import { combinableProductsStyle } from './combinable-products-button.styles';
+import { CombinableProductsButtonConfiguration } from '../custom-buttons.configuration';
+import { getProductPropertyDefinitionByName } from '../../../helpers/helpers';
+import axios from 'axios';
+import { ProductClickOutLink } from './combinable-products-button.directive';
+import { CustomURLPropertyName } from './combinable-products-button.enum';
+import { getContextValue } from '../../../helpers/context-from-advisor-modal';
+import { Product, ZoovuFacadeMixin } from '@zoovu/exd-api';
 
-  @Component({
-    directives: {
-      ProductClickOutLink,
-    },
-  })
-  export default class CombinableProductsButtonComponent extends Mixins(ZoovuFacadeMixin) {
-    
-    @Prop()
-    public productRecommendation: Product;
+@Component({
+  directives: {
+    ProductClickOutLink,
+  },
+})
+export default class CombinableProductsButtonComponent extends Mixins(
+  ZoovuFacadeMixin,
+) {
+  @Prop()
+  public productRecommendation: Product;
 
-    @ComponentStyle(combinableProductsStyle)
-    public componentStyle: ComponentStyleDefinition;
+  @ComponentStyle(combinableProductsStyle)
+  public componentStyle: ComponentStyleDefinition;
 
-    @ComponentConfig(CombinableProductsButtonConfiguration)
-    public componentConfiguration: CombinableProductsButtonConfiguration;
+  @ComponentConfig(CombinableProductsButtonConfiguration)
+  public componentConfiguration: CombinableProductsButtonConfiguration;
 
-    customURLPropertyName = CustomURLPropertyName.COMBINABLE_PRODUCTS_URL;
+  customURLPropertyName = CustomURLPropertyName.COMBINABLE_PRODUCTS_URL;
 
-    isCombinableVisibilityState;
+  isCombinableVisibilityState;
 
-    linkURL = "";
+  linkURL = '';
 
-    linkText = "";
+  linkText = '';
 
-    type = "";
+  type = '';
 
-    defaultDomain = "https://www.bosch-home.com";
+  defaultDomain = 'https://www.bosch-home.com';
 
-    get showButtonInEditorMode(): boolean {
-      return this.isEditMode && Boolean(this.combinableProductsEndpoint);
+  get showButtonInEditorMode(): boolean {
+    return this.isEditMode && Boolean(this.combinableProductsEndpoint);
+  }
+
+  async mounted() {
+    await this.zoovuFacade.waitForAdvisorInitialization();
+    this.isCombinableVisibilityState = getContextValue(
+      this.zoovuFacade,
+      'displayCombinableProducts',
+      'boolean',
+    );
+  }
+
+  get shouldDisplayCombinableProduct(): boolean {
+    const isEnabled = this.isCombinableVisibilityState;
+    if (!this.isProductionEnvironment) {
+      return isEnabled && Boolean(this.combinableProductsEndpoint);
     }
+    return (
+      isEnabled &&
+      Boolean(this.combinableProductsEndpoint) &&
+      this.isTypeCorrect
+    );
+  }
 
-    async mounted() {
-      await this.zoovuFacade.waitForIdle();
-      this.isCombinableVisibilityState = getContextValue(this.zoovuFacade, "displayCombinableProducts", "boolean");
-    }
+  get isProductionEnvironment(): boolean {
+    return Object.prototype.hasOwnProperty.call(window, 'T');
+  }
 
-    get shouldDisplayCombinableProduct(): boolean {
-      const isEnabled = this.isCombinableVisibilityState;
-      if (!this.isProductionEnvironment) {
-        return isEnabled && Boolean(this.combinableProductsEndpoint);
-      }
-      return isEnabled && Boolean(this.combinableProductsEndpoint) && this.isTypeCorrect;
-    }
+  get domain(): string {
+    return this.isProductionEnvironment
+      ? window.location.origin
+      : this.defaultDomain;
+  }
 
-    get isProductionEnvironment(): boolean {
-      return Object.prototype.hasOwnProperty.call(window, "T");
-    }
+  get combinableProductsURL(): string {
+    return `${this.domain}${this.linkURL}`;
+  }
 
-    get domain(): string {
-      return this.isProductionEnvironment ? window.location.origin : this.defaultDomain;
-    }
+  get combinableProductsEndpoint(): string {
+    return getProductPropertyDefinitionByName(
+      this.productRecommendation,
+      this.componentConfiguration.attributeName,
+    )?.value;
+  }
 
-    get combinableProductsURL(): string {
-      return `${this.domain}${this.linkURL}`;
-    }
+  get isTypeCorrect(): boolean {
+    return this.type === this.componentConfiguration.customTypeName;
+  }
 
-    get combinableProductsEndpoint(): string {
-      return getProductPropertyDefinitionByName(this.productRecommendation, this.componentConfiguration.attributeName)?.value;
-    }
+  get linkTextPlaceholder(): string {
+    return 'Combinable Products Link';
+  }
 
-    get isTypeCorrect(): boolean {
-      return this.type === this.componentConfiguration.customTypeName;
-    }
-
-    get linkTextPlaceholder(): string {
-      return "Combinable Products Link";
-    }
-
-    created(): void {
-      if (this.combinableProductsEndpoint) {
-        axios
-          .get(this.combinableProductsEndpoint)
-          .then((resp) => {
-            const { url, linkText, type } = resp.data[0];
-            this.linkURL = url;
-            this.linkText = linkText;
-            this.type = type;
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
+  created(): void {
+    if (this.combinableProductsEndpoint) {
+      axios
+        .get(this.combinableProductsEndpoint)
+        .then((resp) => {
+          const { url, linkText, type } = resp.data[0];
+          this.linkURL = url;
+          this.linkText = linkText;
+          this.type = type;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }
+}
 </script>

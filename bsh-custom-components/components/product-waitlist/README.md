@@ -21,14 +21,15 @@ The Product Waitlist component is available for both top product and recommendat
 To activate the component, follow these steps:
 
 1. **Login to Platform:**
+
    - Log in to the platform.
 
 2. **Navigate to Settings:**
+
    - Go to settings > context settings.
 
 3. **Find Context Variable:**
    - In the context section, find the context variable named `displayWaitlistButton`.
-   
 4. **Toggle Visibility:**
    - If the value is `false`, the button will be hidden for the specific assistant. If the value is `true`, the button will be visible for the assistant.
 
@@ -37,6 +38,7 @@ To activate the component, follow these steps:
 To further activate the component, follow these steps:
 
 1. **Access 'Top Product'/'Recommendations' Settings:**
+
    - Navigate to the settings for 'Top Product' or 'Recommendations.'
 
 2. **Activate 'PRODUCT AVAILABILITY AFTER TEXT' Component:**

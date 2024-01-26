@@ -13,6 +13,7 @@ To activate the Compare Component, follow these steps:
 `yarn dev` - This command runs the project in development mode, allowing you to view your remote component in the Experience Designer (EXD). Log in to your Conversational Studio account, open the Experience Designer, and your component will be displayed within the EXD interface.
 
 1. **Context Variable Activation:**
+
    - Login to the platform and navigate to **Settings > Context Settings.**
    - In the context section, locate the context variable named **displayCompareButton.**
    - If the value is set to false, the button will be hidden for the specific assistant; if true, it will be visible.

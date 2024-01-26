@@ -1,6 +1,5 @@
 # BSH Product Image - `monitorCluster` Component
 
-
 ## Development
 
 `yarn install` - Kindly execute the `yarn install` command at the root level of the parent folder named "bsh-custom-components." This will install all dependencies at the root level, ensuring that they are shared across all custom remote components.
@@ -22,9 +21,11 @@ The BSH Product Image component, including the `monitorCluster` feature, is avai
 To activate the `monitorCluster` component, follow these steps:
 
 1. **Access 'Top Product'/'Recommendations' Settings:**
+
    - Go to 'Top Product' or 'Recommendations' settings.
 
 2. **Activate Product Image Component:**
+
    - Enable the product image component.
 
 3. **Select 'BSH Product Image':**
@@ -37,6 +38,7 @@ To activate the `monitorCluster` component, follow these steps:
 ### Example of Data
 
 - For a single image:
+
   - [https://media3.bosch-home.com/Images/75x75/20639761_20627724_DishwashersJuly2022v2.jpg](https://media3.bosch-home.com/Images/75x75/20639761_20627724_DishwashersJuly2022v2.jpg)
 
 - For a list of images (use "|" between URLs):

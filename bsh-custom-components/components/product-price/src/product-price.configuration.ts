@@ -1,4 +1,9 @@
-import { MarginConfiguration, FontConfiguration, NumericValue, PaddingConfiguration } from "../../helpers/helpers";
+import {
+  MarginConfiguration,
+  FontConfiguration,
+  NumericValue,
+  PaddingConfiguration,
+} from '../../helpers/helpers';
 
 export class ProductPriceConfiguration {
   hideCurrency = false;
@@ -8,9 +13,9 @@ export class ProductPriceConfiguration {
   discountPriceFont: FontConfiguration = new FontConfiguration();
   priceFont: FontConfiguration = new FontConfiguration();
   pricePadding: PaddingConfiguration = new PaddingConfiguration();
-  originalPriceColumnName = "";
-  rrpText = "";
-  shopPriceDescription = "";
+  originalPriceColumnName = '';
+  rrpText = '';
+  shopPriceDescription = '';
   descriptionFont: FontConfiguration = new FontConfiguration();
   descriptionPadding: PaddingConfiguration = new PaddingConfiguration();
   margin: MarginConfiguration = new MarginConfiguration();

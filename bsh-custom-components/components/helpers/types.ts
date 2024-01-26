@@ -1,4 +1,4 @@
-import { ContextScope } from "@zoovu/runner-browser-api";
+import { ContextScope } from '@zoovu/runner-browser-api';
 
 /* eslint-disable camelcase */
 export interface TrackingProduct {
@@ -20,12 +20,12 @@ export interface TrackingData {
 }
 
 export enum CatalogVisibilityType {
-  Marketing = "MARKETING",
-  Shop = "SHOP",
+  Marketing = 'MARKETING',
+  Shop = 'SHOP',
 }
 
 export interface AddToCartData {
-  "data-base-url"?: string;
+  'data-base-url'?: string;
   id?: string;
 }
 
@@ -36,29 +36,29 @@ export interface AjaxRequestData {
 }
 
 export enum DataColumnName {
-  Buyable = "buyable",
-  CountryCode = "country_code",
-  PermanentlyNotAvailable = "permanently_not_available",
-  CatalogVisibilityType = "catalogVisibilityType",
-  EnergyIcon = "energyIcon120",
-  EnergyLabelIcon = "energyLabelIcon",
-  EnergyLabelDoc = "energyLabelDoc",
-  CampaignIcons = "campaign_icons",
-  KeyFeatures = "keyfeatures",
-  Availability = "availability",
-  FixedPromotion = "fixed_promotion",
-  Price = "price",
-  OriginalPrice = "originalPrice",
-  Header1 = "HE_HEADER1",
-  Header2 = "HE_HEADER2",
-  Header4 = "HE_HEADER4",
-  Header5 = "HE_HEADER5",
-  Header6 = "HE_HEADER6",
+  Buyable = 'buyable',
+  CountryCode = 'country_code',
+  PermanentlyNotAvailable = 'permanently_not_available',
+  CatalogVisibilityType = 'catalogVisibilityType',
+  EnergyIcon = 'energyIcon120',
+  EnergyLabelIcon = 'energyLabelIcon',
+  EnergyLabelDoc = 'energyLabelDoc',
+  CampaignIcons = 'campaign_icons',
+  KeyFeatures = 'keyfeatures',
+  Availability = 'availability',
+  FixedPromotion = 'fixed_promotion',
+  Price = 'price',
+  OriginalPrice = 'originalPrice',
+  Header1 = 'HE_HEADER1',
+  Header2 = 'HE_HEADER2',
+  Header4 = 'HE_HEADER4',
+  Header5 = 'HE_HEADER5',
+  Header6 = 'HE_HEADER6',
 }
 
 export enum AdditionalPropertyMetaDataKey {
-  BuyOnline = "__buy_online_dealer_list__",
-  TargetCluster = "__target_cluster__",
+  BuyOnline = '__buy_online_dealer_list__',
+  TargetCluster = '__target_cluster__',
 }
 
 export interface Window {
@@ -80,7 +80,7 @@ interface CompositeContextStroreItem {
   usesPersonalData: boolean;
   get(variableName: string): any;
 }
-declare type ContextSchemaAttributeType = "TEXT" | "BOOL" | "NUMBER" | "LIST";
+declare type ContextSchemaAttributeType = 'TEXT' | 'BOOL' | 'NUMBER' | 'LIST';
 
 export interface AdvisorForContext {
   contextManager: CompositeContextStroreItem;
