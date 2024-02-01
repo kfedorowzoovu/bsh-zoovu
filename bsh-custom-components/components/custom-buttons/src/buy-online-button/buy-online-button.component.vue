@@ -1,6 +1,6 @@
 <template>
   <div class="zv-buy-online-main-button-wrapper">
-    <div v-show="isProductionEnvironment">
+    <div v-show="isProductionEnvironment && isBuyOnlineFeatureEnabled">
       <div
         class="m-productconversionarea"
         data-t-name="ProductConversionArea"
@@ -72,7 +72,10 @@ import {
   Prop,
 } from '@zoovu/runner-browser-api';
 import { BuyOnlineButtonConfiguration } from '../custom-buttons.configuration';
-import { getRecommendationPropertyValue } from '../../../helpers/helpers';
+import {
+  getRecommendationPropertyValue,
+  getContextValue,
+} from '../../../helpers/configurations-helper';
 import {
   AddToCartData,
   CatalogVisibilityType,
@@ -81,7 +84,6 @@ import {
 import BuyOnlineOverlay from './buy-online-overlay.vue';
 import { Window } from '../../../helpers/types';
 import { buyOnlineButtonStyle } from './buy-online-button.style';
-import { getContextValue } from '../../../helpers/context-from-advisor-modal';
 import { RetailerLogosData, Button } from '../../../helpers/types';
 import { Product, ZoovuFacadeMixin } from '@zoovu/exd-api';
 

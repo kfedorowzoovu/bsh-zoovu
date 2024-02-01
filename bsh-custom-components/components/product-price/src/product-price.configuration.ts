@@ -3,7 +3,7 @@ import {
   FontConfiguration,
   NumericValue,
   PaddingConfiguration,
-} from '../../helpers/helpers';
+} from '@zoovu/theme-editor-parameter-types';
 
 export class ProductPriceConfiguration {
   hideCurrency = false;

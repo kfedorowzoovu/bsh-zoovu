@@ -1,6 +1,6 @@
 {
   "name": "@zoovu/bsh-buy-online-button-component",
-  "version": "0.0.305",
+  "version": "0.0.306",
   "private": true,
   "main": "./src/index.ts",
   "scripts": {

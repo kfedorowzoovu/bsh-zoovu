@@ -122,7 +122,10 @@ import {
   Mixins,
   Prop,
 } from '@zoovu/runner-browser-api';
-import { getProductPropertyDefinitionByName } from '../../helpers/helpers';
+import {
+  getProductPropertyDefinitionByName,
+  getContextValue,
+} from '../../helpers/configurations-helper';
 import {
   DataColumnName,
   CatalogVisibilityType,
@@ -133,7 +136,6 @@ import {
   productWaitlistStyle,
   productWaitlistStyleType,
 } from './product-waitlist.style';
-import { getContextValue } from '../../helpers/context-from-advisor-modal';
 import { Product, ZoovuFacadeMixin } from '@zoovu/exd-api';
 @Component
 export default class ProductWaitlist extends Mixins(ZoovuFacadeMixin) {

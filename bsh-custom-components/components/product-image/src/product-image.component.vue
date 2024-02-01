@@ -38,7 +38,7 @@ import {
 } from '@zoovu/runner-browser-api';
 import { ProductImageConfiguration } from './product-image.configuration';
 import { productImageStyles, ProductImageStyles } from './product-image.styles';
-import { getRecommendationPropertyValue } from '../../helpers/helpers';
+import { getRecommendationPropertyValue } from '../../helpers/configurations-helper';
 import { Product } from '@zoovu/exd-api';
 /**
  * Product Image component

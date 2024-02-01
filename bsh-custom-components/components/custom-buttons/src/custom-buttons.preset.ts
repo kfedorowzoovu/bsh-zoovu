@@ -15,7 +15,7 @@ import {
   fontParameters,
   createBackgroundColor,
   fontParametersWithTextDecoration,
-} from '../../helpers/helpers';
+} from '../../helpers/configurations-helper';
 
 const states = object(
   {

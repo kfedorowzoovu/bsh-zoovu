@@ -4,7 +4,7 @@ import {
   createBorderStyle,
   createPaddingStyles,
   createFontStyle,
-} from '../../helpers/helpers';
+} from '@zoovu/theme-editor-parameter-types';
 
 type InfoTextStyleNames = 'container' | 'icon' | 'tooltip' | 'tooltipArrow';
 

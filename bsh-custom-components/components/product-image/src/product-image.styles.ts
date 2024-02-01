@@ -4,7 +4,7 @@ import {
   createMarginStyles,
   createPaddingStyles,
   createBorderStyle,
-} from '../../helpers/helpers';
+} from '@zoovu/theme-editor-parameter-types';
 
 export const productImageStyles: Styles<'container' | 'iconList'> = {
   container: ({

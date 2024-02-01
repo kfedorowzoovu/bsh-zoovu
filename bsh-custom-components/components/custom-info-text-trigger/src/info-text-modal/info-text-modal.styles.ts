@@ -1,4 +1,7 @@
-import { createPaddingStyles, createFontStyle } from '../../../helpers/helpers';
+import {
+  createPaddingStyles,
+  createFontStyle,
+} from '@zoovu/theme-editor-parameter-types';
 import { NumericValueUtil } from '@zoovu/theme-editor-parameter-types';
 import { Classes, Styles } from 'jss';
 import { InfoTextModalConfiguration } from '../custom-info-text-trigger.configuration';

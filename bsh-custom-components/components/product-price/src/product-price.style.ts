@@ -4,7 +4,7 @@ import {
   createMarginStyles,
   createFontStyle,
   createPaddingStyles,
-} from '../../helpers/helpers';
+} from '@zoovu/theme-editor-parameter-types';
 
 export const productPriceStyle: ComponentStyleDefinition = {
   container: (config: ProductPriceConfiguration) => ({

@@ -1,5 +1,4 @@
 <template>
-  <!-- use button to not have 'open in new tab' context option -->
   <div
     v-if="showAddToCartButton && isProductionEnvironment"
     class="m-productconversionarea"
@@ -73,7 +72,7 @@ import {
 } from '@zoovu/runner-browser-api';
 import { AddToCartButtonConfiguration } from './add-to-cart-button.configuration';
 import { addToCartButtonStyle } from './add-to-cart-button.style';
-import { getRecommendationPropertyValue } from '../../helpers/helpers';
+import { getRecommendationPropertyValue } from '../../helpers/configurations-helper';
 import { CatalogVisibilityType, DataColumnName } from '../../helpers/types';
 import { Product, ZoovuFacadeMixin } from '@zoovu/exd-api';
 
@@ -94,6 +93,7 @@ export default class AddToCartButtonComponent extends Mixins(ZoovuFacadeMixin) {
   buttonVisibility: boolean = false;
 
   async mounted() {
+    console.log('thi is new bsh add to cart');
     await this.zoovuFacade.waitForAdvisorInitialization();
     this.buttonVisibility = this.getContextBooleanValue(
       'displayAddToCartButton',

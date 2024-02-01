@@ -6,7 +6,7 @@ import {
   createSizeStyles,
   createBorderStyle,
   createFontStyle,
-} from '../../../helpers/helpers';
+} from '@zoovu/theme-editor-parameter-types';
 
 export const buyOnlineButtonStyle: ComponentStyleDefinition = {
   container: ({

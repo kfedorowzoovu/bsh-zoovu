@@ -6,7 +6,12 @@ import {
   select,
   string,
 } from '@zoovu/theme-editor-parameter-types';
-import { margin, padding, border, justifyContent } from '../../helpers/helpers';
+import {
+  margin,
+  padding,
+  border,
+  justifyContent,
+} from '../../helpers/configurations-helper';
 
 const productImagePreset = remoteComponentConfig(
   object(

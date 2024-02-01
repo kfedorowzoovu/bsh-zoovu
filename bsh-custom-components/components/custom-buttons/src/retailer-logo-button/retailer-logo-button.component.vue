@@ -40,7 +40,7 @@ import { RetailerLogosConfiguration } from '../custom-buttons.configuration';
 import { retailerLogoButtonStyle } from './retailer-logo-button.styles';
 import axios from 'axios';
 import { ProductProperty } from './retailer-logos.enum';
-import { getContextValue } from '../../../helpers/context-from-advisor-modal';
+import { getContextValue } from '../../../helpers/configurations-helper';
 import { Dealer } from '../../../helpers/types';
 import { Product, ZoovuFacadeMixin } from '@zoovu/exd-api';
 @Component

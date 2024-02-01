@@ -5,7 +5,7 @@ import {
   createPaddingStyles,
   createBorderStyle,
   createFontStyle,
-} from '../../../helpers/helpers';
+} from '@zoovu/theme-editor-parameter-types';
 
 export const retailerLogoButtonStyle: Styles<
   | 'container'

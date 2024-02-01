@@ -1,5 +1,5 @@
 import { ColorValue, NumericValue } from '@zoovu/theme-editor-parameter-types';
-import { MarginConfiguration } from '../../../helpers/helpers';
+import { MarginConfiguration } from '@zoovu/theme-editor-parameter-types';
 
 export class IconConfiguration {
   svgUrl?: string = '';

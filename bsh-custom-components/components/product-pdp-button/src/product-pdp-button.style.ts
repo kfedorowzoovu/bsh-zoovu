@@ -5,7 +5,7 @@ import {
   createMarginStyles,
   createPaddingStyles,
   NumericValueUtil,
-} from '../../helpers/helpers';
+} from '@zoovu/theme-editor-parameter-types';
 import { ProductPdpButtonConfiguration } from './product-pdp-button.configuration';
 
 const toString = NumericValueUtil.stringifyNumericValue;

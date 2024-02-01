@@ -25,9 +25,9 @@ import { dealerLocatorButtonStyle } from './dealer-locator-button.styles';
 import {
   getRecommendationPropertyValue,
   getProductPropertyByName,
-} from '../../../helpers/helpers';
+  getContextValue,
+} from '../../../helpers/configurations-helper';
 import { CustomURLPropertyName } from './dealer-locator-button.enum';
-import { getContextValue } from '../../../helpers/context-from-advisor-modal';
 import { Product, ZoovuFacadeMixin } from '@zoovu/exd-api';
 @Component({
   directives: {

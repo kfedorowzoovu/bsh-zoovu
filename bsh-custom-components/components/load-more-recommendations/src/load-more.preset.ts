@@ -6,13 +6,12 @@ import {
   EmbeddedComponentParameterFormat,
   remoteComponentConfig,
 } from '@zoovu/theme-editor-parameter-types';
-
 import {
   fontParameters,
   borderStyles,
   padding,
   margin,
-} from '../../helpers/helpers';
+} from '../../helpers/configurations-helper';
 
 const createBackgroundColor = (defaultValue = '#0070D8') => {
   return color({

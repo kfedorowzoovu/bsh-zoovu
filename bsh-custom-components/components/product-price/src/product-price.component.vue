@@ -50,9 +50,11 @@ import {
 } from '@zoovu/runner-browser-api';
 import { ProductPriceConfiguration } from './product-price.configuration';
 import { productPriceStyle } from './product-price.style';
-import { getRecommendationPropertyValue } from '../../helpers/helpers';
-import { FormatAsPriceMixin } from './format-as-price-mixin';
-import { getContextValue } from '../../helpers/context-from-advisor-modal';
+import {
+  getRecommendationPropertyValue,
+  getContextValue,
+} from '../../helpers/configurations-helper';
+import { FormatAsPriceMixin } from '../../helpers/format-as-price-mixin';
 import { Product } from '@zoovu/exd-api';
 @Component
 export default class ProductPriceComponent extends Mixins(FormatAsPriceMixin) {
