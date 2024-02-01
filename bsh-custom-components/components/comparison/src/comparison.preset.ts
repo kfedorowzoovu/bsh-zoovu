@@ -6,7 +6,7 @@ import {
   standardText,
   string,
 } from '@zoovu/theme-editor-parameter-types';
-import { margin } from '../../helpers/helpers';
+import { margin } from '../../helpers/configurations-helper';
 
 const comparisonPreset = remoteComponentConfig(
   object(

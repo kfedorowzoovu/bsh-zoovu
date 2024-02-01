@@ -113,7 +113,7 @@ import {
 } from '@zoovu/runner-browser-api';
 import { ComparisonConfiguration } from './comparison.configuration';
 import { comparisonStyle } from './comparison.style';
-import { getRecommendationPropertyValue } from '../../helpers/helpers';
+import { getRecommendationPropertyValue } from '../../helpers/configurations-helper';
 import {
   AjaxRequestData,
   CatalogVisibilityType,

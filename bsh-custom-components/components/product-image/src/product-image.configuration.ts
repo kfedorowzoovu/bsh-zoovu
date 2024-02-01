@@ -1,9 +1,9 @@
 import {
-  BackgroundFitOptionsValues,
   BorderConfiguration,
   MarginConfiguration,
   PaddingConfiguration,
-} from '../../helpers/helpers';
+} from '@zoovu/theme-editor-parameter-types';
+import { BackgroundFitOptionsValues } from '../../helpers/configurations-helper';
 import { NumericValue } from '@zoovu/theme-editor-parameter-types';
 
 export class ProductImageConfiguration {

@@ -4,7 +4,7 @@ import {
   FontConfiguration,
   BorderConfiguration,
 } from '@zoovu/theme-editor-parameter-types';
-import { NumericValue } from '../../helpers/helpers';
+import { NumericValue } from '@zoovu/theme-editor-parameter-types';
 
 export class InfoTextModalConfiguration {
   font: FontConfiguration = new FontConfiguration();

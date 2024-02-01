@@ -1,6 +1,6 @@
 import { ComponentStyleDefinition } from '@zoovu/runner-browser-api';
 import { ComparisonConfiguration } from './comparison.configuration';
-import { createMarginStyles } from '../../helpers/helpers';
+import { createMarginStyles } from '@zoovu/theme-editor-parameter-types';
 
 export const comparisonStyle: ComponentStyleDefinition = {
   container: (config: ComparisonConfiguration) => ({

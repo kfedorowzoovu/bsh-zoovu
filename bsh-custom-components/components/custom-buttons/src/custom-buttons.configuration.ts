@@ -7,7 +7,7 @@ import {
   BorderConfiguration,
   NumericValue,
 } from '@zoovu/theme-editor-parameter-types';
-import { ConfigurationWithStates } from '../../helpers/helpers';
+import { ConfigurationWithStates } from '../../helpers/configurations-helper';
 
 export const configuratorButtonStateValues = [
   'default',

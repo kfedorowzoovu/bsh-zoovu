@@ -1,4 +1,4 @@
-import { MarginConfiguration } from '../../helpers/helpers';
+import { MarginConfiguration } from '@zoovu/theme-editor-parameter-types';
 
 export class ComparisonConfiguration {
   comparisonPageUrl = '';

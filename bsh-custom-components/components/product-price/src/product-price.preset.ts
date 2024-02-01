@@ -5,7 +5,11 @@ import {
   standardText,
   numeric,
 } from '@zoovu/theme-editor-parameter-types';
-import { margin, padding, fontParameters } from '../../helpers/helpers';
+import {
+  margin,
+  padding,
+  fontParameters,
+} from '../../helpers/configurations-helper';
 
 const productPricePreset = remoteComponentConfig(
   object(

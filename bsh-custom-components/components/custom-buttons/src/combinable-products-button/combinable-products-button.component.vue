@@ -20,11 +20,13 @@ import {
 } from '@zoovu/runner-browser-api';
 import { combinableProductsStyle } from './combinable-products-button.styles';
 import { CombinableProductsButtonConfiguration } from '../custom-buttons.configuration';
-import { getProductPropertyDefinitionByName } from '../../../helpers/helpers';
+import {
+  getProductPropertyDefinitionByName,
+  getContextValue,
+} from '../../../helpers/configurations-helper';
 import axios from 'axios';
 import { ProductClickOutLink } from './combinable-products-button.directive';
 import { CustomURLPropertyName } from './combinable-products-button.enum';
-import { getContextValue } from '../../../helpers/context-from-advisor-modal';
 import { Product, ZoovuFacadeMixin } from '@zoovu/exd-api';
 
 @Component({

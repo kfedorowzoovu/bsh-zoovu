@@ -1,8 +1,9 @@
 <template>
   <div :class="[componentStyle.container]">
     <a
-      :href="offersUrl()"
-      v-product-click-out-link
+      :href="currentUrl"
+      @click="navigateToTrackedUrl"
+      ref="link"
       class="zv-product-pdp-button"
       v-show="componentConfiguration.buttonVisiblityState"
       :target="openLinkOnNewTab ? '_blank' : '_self'"
@@ -20,17 +21,13 @@ import {
   ComponentStyleDefinition,
   Vue,
   Prop,
+  Ref,
 } from '@zoovu/runner-browser-api';
 import { ProductPdpButtonConfiguration } from './product-pdp-button.configuration';
 import { productPdpButtonStyle } from './product-pdp-button.style';
-import { ProductClickOutLink } from '../../helpers/product-pdp-button.directive';
 import { Product } from '@zoovu/exd-api';
 
-@Component({
-  directives: {
-    ProductClickOutLink,
-  },
-})
+@Component({})
 export default class ProductPdpButtoncomponent extends Vue {
   @ComponentConfig(ProductPdpButtonConfiguration)
   componentConfiguration: ProductPdpButtonConfiguration;
@@ -45,8 +42,18 @@ export default class ProductPdpButtoncomponent extends Vue {
     return this.componentConfiguration.openLinkInNewTab;
   }
 
-  offersUrl(): string {
+  @Ref() link!: HTMLAnchorElement;
+
+  get currentUrl(): string {
     return this.productRecommendation?.offerUrl;
+  }
+
+  navigateToTrackedUrl(event: Event) {
+    event.preventDefault();
+    const trackedUrl = this.productRecommendation.getTrackedOfferUrl();
+    this.link.href = trackedUrl;
+    window.location.href = trackedUrl;
+    this.link.href = this.currentUrl;
   }
 }
 </script>

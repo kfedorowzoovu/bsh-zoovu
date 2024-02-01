@@ -6,7 +6,12 @@ import {
   color,
   boolean,
 } from '@zoovu/theme-editor-parameter-types';
-import { padding, border, fontParameters, size } from '../../helpers/helpers';
+import {
+  padding,
+  border,
+  fontParameters,
+  size,
+} from '../../helpers/configurations-helper';
 
 const customInfoTextTriggerPreset = remoteComponentConfig(
   object(

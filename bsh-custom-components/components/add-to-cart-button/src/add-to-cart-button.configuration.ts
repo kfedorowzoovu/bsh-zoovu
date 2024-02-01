@@ -1,10 +1,10 @@
+import { ConfigurationWithStates } from '../../helpers/configurations-helper';
 import {
   BorderConfiguration,
-  ConfigurationWithStates,
   FontWithoutAlignConfiguration,
   MarginConfiguration,
   PaddingConfiguration,
-} from '../../helpers/helpers';
+} from '@zoovu/theme-editor-parameter-types';
 
 export const configuratorButtonStateValues = [
   'default',

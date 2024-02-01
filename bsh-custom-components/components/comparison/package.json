@@ -1,6 +1,6 @@
 {
   "name": "@zoovu/bsh-comparison-component",
-  "version": "0.0.198",
+  "version": "0.0.200",
   "private": true,
   "main": "./src/index.ts",
   "scripts": {

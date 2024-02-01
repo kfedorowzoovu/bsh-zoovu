@@ -1,6 +1,6 @@
 {
   "name": "@zoovu/bsh-product-image-component",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "private": true,
   "main": "./src/index.ts",
   "scripts": {

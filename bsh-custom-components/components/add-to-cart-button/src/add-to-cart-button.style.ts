@@ -6,7 +6,7 @@ import {
   createMarginStyles,
   createPaddingStyles,
   NumericValueUtil,
-} from '../../helpers/helpers';
+} from '@zoovu/theme-editor-parameter-types';
 
 const toString = NumericValueUtil.stringifyNumericValue;
 

@@ -16,7 +16,7 @@ import {
   borderStyles,
   padding,
   margin,
-} from '../../helpers/helpers';
+} from '../../helpers/configurations-helper';
 const createBackgroundColor = (defaultValue = '#0070D8') => {
   return color({
     default: defaultValue,
