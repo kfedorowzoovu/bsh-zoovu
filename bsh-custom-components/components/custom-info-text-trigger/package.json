@@ -12,11 +12,11 @@
     "@zoovu/runner-browser-api": "5.162.3"
   },
   "devDependencies": {
-    "@zoovu/exd-api": "0.4.0",
-    "@zoovu/exd-scripts": "^0.4.0",
+    "@zoovu/exd-api": "0.5.0",
+    "@zoovu/exd-scripts": "^0.6.0",
     "@zoovu/theme-editor-parameter-types": "^5.28.1"
   },
   "dependencies": {
-    "@zoovu/exd-api": "0.4.0"
+    "@zoovu/exd-api": "0.5.0"
   }
 }

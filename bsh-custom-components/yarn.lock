@@ -793,15 +793,15 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@zoovu/exd-api@0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@zoovu/exd-api/-/exd-api-0.4.0.tgz#7bcc0f956bcc36cd9f0906d3363dc305155f4ff3"
-  integrity sha512-f2mF3mVQiGqeqP/qcipyvM8lw9yEin/3UYyD5ndbchtxyFmb7nXp4UjrGIjqminPEPCdzvVPzSjLcmJuOhNkYw==
+"@zoovu/exd-api@0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@zoovu/exd-api/-/exd-api-0.5.0.tgz#a2410ca0890ab9ffffbdd5b0ee7528bbe8b3ac30"
+  integrity sha512-BUz0b4dATtUxIZjyeYB2aYSogpG8UB+1eZIb7rgDo5BqVrEpoyA0gpCaNkDiTDUbYoo0P0HVIkUnaQYv6kAZhw==
 
-"@zoovu/exd-scripts@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@zoovu/exd-scripts/-/exd-scripts-0.4.0.tgz#a7b751136d0f90e0abcdf16253d97597ae1b11d8"
-  integrity sha512-q7pEDh4Pw3rqpqys9RMF6mRoV26kydYnKyH5jk6Ggenk0FmX/fwoBkt4tYu4cdr5yKxB3VKxJXlIKytJV5zsTA==
+"@zoovu/exd-scripts@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@zoovu/exd-scripts/-/exd-scripts-0.6.0.tgz#c495d1b8df2f64c0482cb42e618348e0e6153a49"
+  integrity sha512-JFBsPwRwpkOCLJjIrIpr3Jgov8dq8tyNI9NWHa9mkglqneGxhuzzRLizviH4zpb5YCWPaANQ6faSV3EECfKr9w==
   dependencies:
     "@babel/core" "^7.13.10"
     "@zoovu/runner-browser-api" "5.162.3"
