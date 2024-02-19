@@ -158,7 +158,7 @@ export default class AddToCartButtonComponent extends Mixins(ZoovuFacadeMixin) {
     return getRecommendationPropertyValue(
       this.productRecommendation,
       DataColumnName.CountryCode,
-    ) as string;
+    );
   }
 
   public addToCartViaJS(): void {
